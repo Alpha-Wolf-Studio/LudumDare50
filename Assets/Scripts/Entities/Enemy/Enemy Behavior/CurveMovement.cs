@@ -10,6 +10,7 @@ public class CurveMovement : MovementBase
     [SerializeField] private float lerpTime = 1f;
     [SerializeField] private float currentLerpTime;
     [SerializeField] private bool isLerping;
+    [SerializeField] private GameObject targett;
 
     private Vector3 startPos;
     private Vector3 endPos;
@@ -56,7 +57,7 @@ public class CurveMovement : MovementBase
 
     void GetCenter(Vector3 direction)
     {
-        centerPoint = (startPos + target.transform.position) * 0.5f;
+        centerPoint = (startPos + targett.transform.position) * 0.5f;
         centerPoint -= direction;
         startRelCenter = startPos - centerPoint;
         endRelCenter = target.transform.position - centerPoint;
