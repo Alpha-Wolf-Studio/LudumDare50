@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     [System.Serializable]
     public class LevelsTimeConfigurations 
     {
+        public string name;
         public float timeForNextLevel;
     }
 
@@ -14,7 +15,7 @@ public class GameManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private EnemyManager enemyManager;
-    [SerializeField] ShipPlayer player;
+    [SerializeField] private ShipPlayer player;
     [Header("Configuration")]
     [SerializeField] private List<LevelsTimeConfigurations> timesConfigurations;
 
@@ -35,7 +36,6 @@ public class GameManager : MonoBehaviour
         if (currentLevel == timesConfigurations.Count)
         {
             currentLevel = 0;
-            currentLevelTime = 0;
         }
     }
 
@@ -57,6 +57,7 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator TimeCoroutine() 
     {
+        currentLevelTime = 0;
         while (currentLevelTime < timesConfigurations[currentLevel].timeForNextLevel) 
         {
             currentLevelTime += Time.deltaTime;

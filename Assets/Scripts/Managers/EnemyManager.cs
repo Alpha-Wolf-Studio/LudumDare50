@@ -72,6 +72,18 @@ public class EnemyManager : MonoBehaviour
     public void SpawnRandomEnemy() 
     {
 
+        if(currentPlayer == null) 
+        {
+            currentPlayer = FindObjectOfType<ShipPlayer>();
+            Debug.LogWarning("EnemyManager sin player encontrado. Player buscado a la fuerza");
+        }
+
+        if(currentConfiguration == null) 
+        {
+            currentConfiguration = configurations[0];
+            Debug.LogWarning("EnemyManager sin configuracion actual encontrada. Se setea la primera de la lista");
+        }
+
         Vector3 newSpawnPosition = currentPlayer.transform.position;
 
         SpawnType spawnType = (SpawnType)Random.Range(0, (int)SpawnType.SIZE);
@@ -118,7 +130,9 @@ public class EnemyManager : MonoBehaviour
         }
 
         var enemy = Instantiate(enemyToSpawn, newSpawnPosition, Quaternion.identity, transform);
-        enemy.GetComponent<MovementBase>().SetNewTarget(currentPlayer.transform);
+
+        var enemyMovement = enemy.GetComponent<MovementBase>();
+        if(enemyMovement) enemyMovement.SetNewTarget(currentPlayer.transform);
     }
 
 }
