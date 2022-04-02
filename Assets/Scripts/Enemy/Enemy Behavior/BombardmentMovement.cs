@@ -6,22 +6,28 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class BombardmentMovement : MovementBase
 {
-
+    [Header("Enemy Config")]
     [SerializeField] private float speed;
     [SerializeField] private Vector3 movementVector;
-    [SerializeField] private GameObject bullet;
     [SerializeField] private bool hasEnteredIntoTheScreen;
+    [Header("Bullet Config")]
+    [SerializeField] private GameObject bullet;
     [SerializeField] private float timeBetweenShoots;
     private Rigidbody2D rb;
     private BoxCollider2D col;
     private SpriteRenderer spr;
 
-    // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
         spr = GetComponent<SpriteRenderer>();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
     }
 
     // Update is called once per frame

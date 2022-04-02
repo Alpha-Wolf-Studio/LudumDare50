@@ -6,13 +6,14 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class ForwardMovement : MovementBase
 {
-    [SerializeField] float lerpTime = 1f;
-    [SerializeField] float currentLerpTime;
-    [SerializeField] bool isLerping;
+    [Header("Lerp Config")]
+    [SerializeField] private float lerpTime = 1f;
+    [SerializeField] private float currentLerpTime;
+    [SerializeField] private bool isLerping;
 
-    [SerializeField] Vector3 startPos;
 
     private Rigidbody2D rb;
+    private Vector3 startPos;
     
     // Start is called before the first frame update
 

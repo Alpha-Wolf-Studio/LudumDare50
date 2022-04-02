@@ -6,17 +6,17 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class CurveMovement : MovementBase
 {
-    [SerializeField] float lerpTime = 1f;
-    [SerializeField] float currentLerpTime;
-    [SerializeField] bool isLerping;
+    [Header("Lerp Config")]
+    [SerializeField] private float lerpTime = 1f;
+    [SerializeField] private float currentLerpTime;
+    [SerializeField] private bool isLerping;
 
-    Vector3 startPos;
-    [SerializeField] Vector3 endPos;
-
-    float startTime;
-    Vector3 centerPoint;
-    Vector3 startRelCenter;
-    Vector3 endRelCenter;    
+    private Vector3 startPos;
+    private Vector3 endPos;
+    private float startTime;
+    private Vector3 startRelCenter;
+    private Vector3 centerPoint;
+    private Vector3 endRelCenter;    
 
     private Rigidbody2D rb;
 

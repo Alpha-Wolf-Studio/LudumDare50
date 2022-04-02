@@ -6,8 +6,9 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class ZigZagMovement : MovementBase
 {
-    [SerializeField] private float speed;
     [SerializeField] private bool hasEnteredIntoTheScreen;
+    [Header("ZigZag Config")]
+    [SerializeField] private float speed;
     [SerializeField] private float frequency;
     [SerializeField] private float magnitude;
     private Rigidbody2D rb;
@@ -15,16 +16,21 @@ public class ZigZagMovement : MovementBase
     private SpriteRenderer spr;
     private Vector3 pos;
     private Vector3 axis;
+    private Vector3 direction;
 
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
         spr = GetComponent<SpriteRenderer>();
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
         pos = transform.position;
-        pos = transform.position;
+        direction = (target.position - transform.position).normalized;
         axis = transform.up;
     }
 
@@ -43,7 +49,7 @@ public class ZigZagMovement : MovementBase
 
     private void FixedUpdate()
     {
-        pos += Vector3.right * Time.deltaTime * speed;
+        pos += direction * Time.deltaTime * speed;
         rb.MovePosition(pos + axis * Mathf.Sin(Time.time * frequency) * magnitude);
     }
 }

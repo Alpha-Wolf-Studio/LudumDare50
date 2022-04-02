@@ -6,27 +6,31 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class LightingBoltSummoner : MovementBase
 {
-
+    [Header("Movment Config")]
+    [SerializeField] private bool hasEnteredIntoTheScreen;
+    [SerializeField] private Vector3 startPosition;
     [SerializeField] private float speed;
     [SerializeField] private float speedAux;
+    [SerializeField] private float distanceToMove;
     [SerializeField] private Vector3 movementVector;
-    [SerializeField] private bool hasEnteredIntoTheScreen;
+    [Header("Lighting Bolt Config")]
     [SerializeField] private GameObject lightingBolt;
     [SerializeField] private float timeToSummon;
     [SerializeField] private float timeElapsed;
-    [SerializeField] private float distanceToMove;
     [SerializeField] private bool lightingHasBeenSummoned;
-    [SerializeField] private Vector3 startPosition;
     private Rigidbody2D rb;
     private BoxCollider2D col;
     private SpriteRenderer spr;
 
-
-    void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<BoxCollider2D>();
         spr = GetComponent<SpriteRenderer>();
+    }
+
+    void Start()
+    {
         speedAux = speed;
         startPosition = transform.position;
     }
@@ -53,7 +57,7 @@ public class LightingBoltSummoner : MovementBase
             if(timeElapsed > timeToSummon-1)
             {
                 lightingHasBeenSummoned = true;
-                GameObject lightingBoltInstance = Instantiate(lightingBolt, target.transform.position, Quaternion.identity);
+                GameObject lightingBoltInstance = Instantiate(lightingBolt, transform.position, Quaternion.identity);
                 Destroy(lightingBoltInstance, 1);
             }
         }
