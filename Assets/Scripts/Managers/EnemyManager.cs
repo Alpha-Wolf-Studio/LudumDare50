@@ -49,7 +49,7 @@ public class EnemyManager : MonoBehaviour
     private IEnumerator SpawnCoroutine() 
     {
         currentTimeBetweenSpawn = currentConfiguration.timeBetweenSpawns;
-        float t;
+        float t = 0;
 
         while (true) 
         {
@@ -57,6 +57,14 @@ public class EnemyManager : MonoBehaviour
             {
                 currentTimeBetweenSpawn -= currentConfiguration.spawnAccelerationSpeed * Time.deltaTime;
             }
+
+            t += Time.deltaTime;
+            if(t > currentTimeBetweenSpawn) 
+            {
+                t = 0;
+                SpawnRandomEnemy();
+            }
+
             yield return null;
         }
     }
