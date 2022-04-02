@@ -134,5 +134,4 @@ public class EnemyManager : MonoBehaviour
         var enemyMovement = enemy.GetComponent<MovementBase>();
         if(enemyMovement) enemyMovement.SetNewTarget(currentPlayer.transform);
     }
-
 }
