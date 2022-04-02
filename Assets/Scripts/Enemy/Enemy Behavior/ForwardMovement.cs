@@ -4,14 +4,13 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-public class ForwardMovement : MonoBehaviour
+public class ForwardMovement : MovementBase
 {
     [SerializeField] float lerpTime = 1f;
     [SerializeField] float currentLerpTime;
     [SerializeField] bool isLerping;
 
     [SerializeField] Vector3 startPos;
-    [SerializeField] Vector3 endPos;
 
     private Rigidbody2D rb;
     
@@ -41,7 +40,7 @@ public class ForwardMovement : MonoBehaviour
 
             float percentComplete = currentLerpTime / lerpTime;
             Debug.Log(percentComplete);
-            rb.MovePosition(Vector3.Lerp(startPos, endPos, percentComplete));
+            rb.MovePosition(Vector3.Lerp(startPos, target.transform.position, percentComplete));
         }
     }
 }

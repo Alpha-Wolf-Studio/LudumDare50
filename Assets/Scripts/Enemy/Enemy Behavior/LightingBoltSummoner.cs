@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-public class LightingBoltSummoner : MonoBehaviour
+public class LightingBoltSummoner : MovementBase
 {
 
     [SerializeField] private float speed;
@@ -53,7 +53,7 @@ public class LightingBoltSummoner : MonoBehaviour
             if(timeElapsed > timeToSummon-1)
             {
                 lightingHasBeenSummoned = true;
-                GameObject lightingBoltInstance = Instantiate(lightingBolt,transform.position,Quaternion.identity);
+                GameObject lightingBoltInstance = Instantiate(lightingBolt, target.transform.position, Quaternion.identity);
                 Destroy(lightingBoltInstance, 1);
             }
         }

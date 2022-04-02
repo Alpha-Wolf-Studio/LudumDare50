@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-public class ZigZagMovement : MonoBehaviour
+public class ZigZagMovement : MovementBase
 {
     [SerializeField] private float speed;
     [SerializeField] private bool hasEnteredIntoTheScreen;

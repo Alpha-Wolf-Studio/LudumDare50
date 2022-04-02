@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-public class CurveMovement : MonoBehaviour
+public class CurveMovement : MovementBase
 {
     [SerializeField] float lerpTime = 1f;
     [SerializeField] float currentLerpTime;
@@ -56,9 +56,9 @@ public class CurveMovement : MonoBehaviour
 
     void GetCenter(Vector3 direction)
     {
-        centerPoint = (startPos + endPos) * 0.5f;
+        centerPoint = (startPos + target.transform.position) * 0.5f;
         centerPoint -= direction;
         startRelCenter = startPos - centerPoint;
-        endRelCenter = endPos - centerPoint;
+        endRelCenter = target.transform.position - centerPoint;
     }
 }

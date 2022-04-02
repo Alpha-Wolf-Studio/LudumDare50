@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-public class BombardmentMovement : MonoBehaviour
+public class BombardmentMovement : MovementBase
 {
 
     [SerializeField] private float speed;
