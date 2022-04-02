@@ -645,6 +645,50 @@ PrefabInstance:
       propertyPath: levelsAmount
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 1402172613970261587, guid: 57c15ba705efb2d4b93f20af43390988, type: 3}
+      propertyPath: timesConfigurations.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402172613970261587, guid: 57c15ba705efb2d4b93f20af43390988, type: 3}
+      propertyPath: timesConfigurations.Array.data[0].name
+      value: Level 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402172613970261587, guid: 57c15ba705efb2d4b93f20af43390988, type: 3}
+      propertyPath: timesConfigurations.Array.data[1].name
+      value: Level 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402172613970261587, guid: 57c15ba705efb2d4b93f20af43390988, type: 3}
+      propertyPath: timesConfigurations.Array.data[2].name
+      value: Level 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402172613970261587, guid: 57c15ba705efb2d4b93f20af43390988, type: 3}
+      propertyPath: timesConfigurations.Array.data[3].name
+      value: Level 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402172613970261587, guid: 57c15ba705efb2d4b93f20af43390988, type: 3}
+      propertyPath: timesConfigurations.Array.data[4].name
+      value: Level 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402172613970261587, guid: 57c15ba705efb2d4b93f20af43390988, type: 3}
+      propertyPath: timesConfigurations.Array.data[0].timeForNextLevel
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402172613970261587, guid: 57c15ba705efb2d4b93f20af43390988, type: 3}
+      propertyPath: timesConfigurations.Array.data[1].timeForNextLevel
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402172613970261587, guid: 57c15ba705efb2d4b93f20af43390988, type: 3}
+      propertyPath: timesConfigurations.Array.data[2].timeForNextLevel
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402172613970261587, guid: 57c15ba705efb2d4b93f20af43390988, type: 3}
+      propertyPath: timesConfigurations.Array.data[3].timeForNextLevel
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1402172613970261587, guid: 57c15ba705efb2d4b93f20af43390988, type: 3}
+      propertyPath: timesConfigurations.Array.data[4].timeForNextLevel
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 1402172613970261588, guid: 57c15ba705efb2d4b93f20af43390988, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -691,7 +735,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1402172613970261589, guid: 57c15ba705efb2d4b93f20af43390988, type: 3}
       propertyPath: m_Name
-      value: GameManager
+      value: Game Manager
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57c15ba705efb2d4b93f20af43390988, type: 3}
@@ -704,7 +748,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 5841444325667820229, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
       propertyPath: m_Name
-      value: EnemyManager
+      value: Enemy Manager
       objectReference: {fileID: 0}
     - target: {fileID: 5841444325667820234, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
       propertyPath: m_RootOrder
@@ -774,6 +818,186 @@ PrefabInstance:
       propertyPath: configurations.Array.data[4].name
       value: Level 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[0].verticalOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[1].verticalOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[2].verticalOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[3].verticalOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[4].verticalOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[0].horizontalOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[1].horizontalOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[2].horizontalOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[3].horizontalOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[4].horizontalOffset
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[0].timeBetweenSpawns
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[1].timeBetweenSpawns
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[2].timeBetweenSpawns
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[3].timeBetweenSpawns
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[4].timeBetweenSpawns
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[0].airEnemiesPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[1].airEnemiesPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[2].airEnemiesPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[3].airEnemiesPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[4].airEnemiesPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[0].airEnemiesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 2528560318036960146, guid: a460fa55eb49a4149ab6fc1f84947169, type: 3}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[1].airEnemiesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 1000626234226757436, guid: eb52f0aea03bfe74ab4f59749dfbf76b, type: 3}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[2].airEnemiesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 6201286464125787098, guid: a1d658df251df774c984e1ba83b67332, type: 3}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[3].airEnemiesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 972506103062185095, guid: e6908932665c1e144a16961c174404f8, type: 3}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[4].airEnemiesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 965780557089160143, guid: d7f2fa56af3d8514f94e52e29a0aa744, type: 3}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[0].onWaterEnemiesPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[1].onWaterEnemiesPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[2].onWaterEnemiesPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[3].onWaterEnemiesPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[4].onWaterEnemiesPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[0].onWaterEnemiesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 6279591935408066013, guid: 432df9ec8dad016408f70578b7140f4c, type: 3}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[0].underWaterEnemiesPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[1].onWaterEnemiesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 3801868826373568901, guid: ec7491c89ff8f044caa5f30434fbb8f9, type: 3}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[1].underWaterEnemiesPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[2].onWaterEnemiesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 7530967812746738146, guid: 4acdabbc69cf5cf4ab6f99003d1729ab, type: 3}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[2].underWaterEnemiesPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[3].onWaterEnemiesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 8983871431691095883, guid: 629eca2284877c6469a79d72ad541af1, type: 3}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[3].underWaterEnemiesPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[4].onWaterEnemiesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 4418228947726040900, guid: 55ac2629197773944a101be7d8b69d01, type: 3}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[4].underWaterEnemiesPrefab.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[0].underWaterEnemiesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 348154605158599344, guid: 7bf56b190ac10c140afaa2fbff7f3212, type: 3}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[1].underWaterEnemiesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 6344921979613743685, guid: d45ce4f5ab3669443be4b5b034fee531, type: 3}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[2].underWaterEnemiesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 8943461845234850509, guid: 1e3517de28a592642ac83c76cb491712, type: 3}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[3].underWaterEnemiesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 8336016372367363706, guid: 19990077d20bd8b4dad5de76220a63d1, type: 3}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[4].underWaterEnemiesPrefab.Array.data[0]
+      value: 
+      objectReference: {fileID: 1817271877180335864, guid: 0bf2489c0c78b0a4593789d6935faec6, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
 --- !u!1001 &8787982702481846927
@@ -785,7 +1009,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7428914362009536810, guid: ecb87e676cfac3a479472107162cb4a2, type: 3}
       propertyPath: m_Name
-      value: PlayerShip
+      value: Player Ship
       objectReference: {fileID: 0}
     - target: {fileID: 7428914362009536810, guid: ecb87e676cfac3a479472107162cb4a2, type: 3}
       propertyPath: m_IsActive
