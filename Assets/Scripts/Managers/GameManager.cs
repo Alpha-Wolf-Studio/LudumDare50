@@ -65,4 +65,10 @@ public class GameManager : MonoBehaviour
         }
         StartNewLevel();
     }
+
+    public void ChangeTimeScale(float newScale) 
+    {
+        Time.timeScale = newScale;
+    }
+
 }
