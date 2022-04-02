@@ -26,7 +26,7 @@ public class EnemyManager : MonoBehaviour
 
     private enum SpawnType { UNDERWATER, ONWATER, AIR, SIZE}
 
-    [SerializeField] List<LevelSpawnConfigurations> configurations;
+    [SerializeField] private List<LevelSpawnConfigurations> configurations;
 
     private LevelSpawnConfigurations currentConfiguration;
     private ShipPlayer currentPlayer;

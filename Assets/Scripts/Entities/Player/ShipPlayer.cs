@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ShipPlayer : MonoBehaviour
+public class ShipPlayer : Entity
 {
     [SerializeField] private LayerMask enemyMask = 0;
 
@@ -28,7 +28,7 @@ public class ShipPlayer : MonoBehaviour
                 if (Utils.CheckLayerInMask(enemyMask, hit.collider.gameObject.layer))
                 {
                     Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
-                    enemy.RecieveDamage();
+                    enemy.RecieveDamage(-1);
                 }
             }
         }
