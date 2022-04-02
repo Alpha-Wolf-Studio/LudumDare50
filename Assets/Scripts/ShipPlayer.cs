@@ -4,15 +4,33 @@ using UnityEngine;
 
 public class ShipPlayer : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] private LayerMask enemyMask = 0;
+
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        ClickAttack();
+    }
+
+    private void ClickAttack()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
+
+            if (hit.collider != null)
+            {
+                if (Utils.CheckLayerInMask(enemyMask, hit.collider.gameObject.layer))
+                {
+                    Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
+                    enemy.RecieveDamage();
+                }
+            }
+        }
     }
 }
