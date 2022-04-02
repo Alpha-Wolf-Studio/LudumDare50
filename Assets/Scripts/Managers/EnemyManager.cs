@@ -9,10 +9,6 @@ public class EnemyManager : MonoBehaviour
     {
         public string name;
 
-        [Header("Spawn Location Configurations")]
-        public float verticalOffset;
-        public float horizontalOffset;
-
         [Header("Spawn Time Configurations")]
         public float timeBetweenSpawns;
         public float minTimeBetweenSpawns;
@@ -88,50 +84,65 @@ public class EnemyManager : MonoBehaviour
 
         SpawnType spawnType = (SpawnType)Random.Range(0, (int)SpawnType.SIZE);
 
-        float newOffsetX = 0;
-        int spawnIndex = 0;
+        Camera camera = Camera.main;
+
+        Vector2 minCamera = camera.ScreenToWorldPoint(new Vector2(0, 0));
+        Vector2 maxCamera = camera.ScreenToWorldPoint(new Vector2(camera.pixelWidth, camera.pixelHeight));
+
         GameObject enemyToSpawn = null;
+        Vector3 EnemyGraphicBoundsExtents = Vector3.zero;
 
         switch (spawnType)
         {
             case SpawnType.UNDERWATER:
 
-                spawnIndex = Random.Range(0, currentConfiguration.underWaterEnemiesPrefab.Count);
-                enemyToSpawn = currentConfiguration.underWaterEnemiesPrefab[spawnIndex];
+                int underWaterSpawnIndex = Random.Range(0, currentConfiguration.underWaterEnemiesPrefab.Count);
+                enemyToSpawn = currentConfiguration.underWaterEnemiesPrefab[underWaterSpawnIndex];
 
-                newSpawnPosition.y -= currentConfiguration.verticalOffset;
-                newOffsetX = Random.Range(-currentConfiguration.horizontalOffset, currentConfiguration.horizontalOffset);
-                newSpawnPosition.x += newOffsetX;
+                var underWaterSpriteRenderer = enemyToSpawn.GetComponent<SpriteRenderer>();
+                if(underWaterSpriteRenderer) EnemyGraphicBoundsExtents = underWaterSpriteRenderer.bounds.extents;
+
+                newSpawnPosition.y += minCamera.y - EnemyGraphicBoundsExtents.y;
+                newSpawnPosition.x += Random.Range(minCamera.x, maxCamera.x);
 
                 break;
 
             case SpawnType.ONWATER:
 
-                spawnIndex = Random.Range(0, currentConfiguration.onWaterEnemiesPrefab.Count);
-                enemyToSpawn = currentConfiguration.onWaterEnemiesPrefab[spawnIndex];
+                int onWaterSpawnIndex = Random.Range(0, currentConfiguration.onWaterEnemiesPrefab.Count);
+                enemyToSpawn = currentConfiguration.onWaterEnemiesPrefab[onWaterSpawnIndex];
+
+                var onWaterSpriteRenderer = enemyToSpawn.GetComponent<SpriteRenderer>();
+                if (onWaterSpriteRenderer) EnemyGraphicBoundsExtents = onWaterSpriteRenderer.bounds.extents;
 
                 int randomDirection = Random.Range(0, 2);
-                newOffsetX = randomDirection == 0 ? currentConfiguration.horizontalOffset : -currentConfiguration.horizontalOffset;
-                newSpawnPosition.x += newOffsetX;
+                newSpawnPosition.x += randomDirection == 0 ? minCamera.x - EnemyGraphicBoundsExtents.x : maxCamera.x + EnemyGraphicBoundsExtents.x;
+
+
                 break;
 
             case SpawnType.AIR:
 
-                spawnIndex = Random.Range(0, currentConfiguration.airEnemiesPrefab.Count);
-                enemyToSpawn = currentConfiguration.airEnemiesPrefab[spawnIndex];
+                int airSpawnIndex = Random.Range(0, currentConfiguration.airEnemiesPrefab.Count);
+                enemyToSpawn = currentConfiguration.airEnemiesPrefab[airSpawnIndex];
 
-                newSpawnPosition.y += currentConfiguration.verticalOffset;
-                newOffsetX = Random.Range(-currentConfiguration.horizontalOffset, currentConfiguration.horizontalOffset);
-                newSpawnPosition.x += newOffsetX;
+                var airSpriteRenderer = enemyToSpawn.GetComponent<SpriteRenderer>();
+                if (airSpriteRenderer) EnemyGraphicBoundsExtents = airSpriteRenderer.bounds.extents;
+
+                newSpawnPosition.y += maxCamera.y + EnemyGraphicBoundsExtents.y;
+                newSpawnPosition.x += Random.Range(minCamera.x, maxCamera.x);
+
                 break;
 
             default:
                 break;
         }
 
-        var enemy = Instantiate(enemyToSpawn, newSpawnPosition, Quaternion.identity, transform);
+        var enemyGameobject = Instantiate(enemyToSpawn, newSpawnPosition, Quaternion.identity, transform);
 
-        var enemyMovement = enemy.GetComponent<MovementBase>();
+        var enemyMovement = enemyGameobject.GetComponent<MovementBase>();
         if(enemyMovement) enemyMovement.SetNewTarget(currentPlayer.transform);
+
+        
     }
 }
