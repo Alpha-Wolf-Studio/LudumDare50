@@ -43,3 +43,80 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 699a70150fc78a449aab23b9759c2d53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  configurations:
+  - name: Level 1
+    timeBetweenSpawns: 2
+    minTimeBetweenSpawns: 0
+    spawnAccelerationSpeed: 0
+    enemiesSpawn:
+    - name: Enemy 1
+      currentSpawnType: 3
+      prefab: {fileID: 2528560318036960146, guid: a460fa55eb49a4149ab6fc1f84947169, type: 3}
+    - name: Enemy 2
+      currentSpawnType: 1
+      prefab: {fileID: 6279591935408066013, guid: 432df9ec8dad016408f70578b7140f4c, type: 3}
+    - name: Enemy 3
+      currentSpawnType: 0
+      prefab: {fileID: 348154605158599344, guid: c50ed2becae066849ab30bd8434ee139, type: 3}
+    - name: Enemy 4
+      currentSpawnType: 0
+      prefab: {fileID: 348154605158599344, guid: 7bf56b190ac10c140afaa2fbff7f3212, type: 3}
+    - name: Enemy 5
+      currentSpawnType: 3
+      prefab: {fileID: 348154605158599344, guid: 8a3ff9d5e4513554b8fe9030ab9b9c1c, type: 3}
+  - name: Level 2
+    timeBetweenSpawns: 2
+    minTimeBetweenSpawns: 0
+    spawnAccelerationSpeed: 0
+    enemiesSpawn:
+    - name: Enemy 1
+      currentSpawnType: 4
+      prefab: {fileID: 1000626234226757436, guid: ff7a2c983d6cd9d448acec2096e7a9f7, type: 3}
+    - name: Enemy 2
+      currentSpawnType: 3
+      prefab: {fileID: 1000626234226757436, guid: eb52f0aea03bfe74ab4f59749dfbf76b, type: 3}
+    - name: Enemy 3
+      currentSpawnType: 1
+      prefab: {fileID: 6344921979613743685, guid: 8ccaf0d8223970f459f78e476b0fc5db, type: 3}
+    - name: Enemy 4
+      currentSpawnType: 0
+      prefab: {fileID: 6344921979613743685, guid: d45ce4f5ab3669443be4b5b034fee531, type: 3}
+    - name: Enemy 5
+      currentSpawnType: 3
+      prefab: {fileID: 1000626234226757436, guid: 66abae4cccc4cdc47917a6e1e5fe42e5, type: 3}
+  - name: Level 3
+    timeBetweenSpawns: 5
+    minTimeBetweenSpawns: 0
+    spawnAccelerationSpeed: 0
+    enemiesSpawn:
+    - name: Enemy 1
+      currentSpawnType: 1
+      prefab: {fileID: 7530967812746738146, guid: 4acdabbc69cf5cf4ab6f99003d1729ab, type: 3}
+    - name: Enemy 2
+      currentSpawnType: 3
+      prefab: {fileID: 6201286464125787098, guid: e3a6755194074a84bb55227148f01db7, type: 3}
+    - name: Enemy 3
+      currentSpawnType: 3
+      prefab: {fileID: 6201286464125787098, guid: 1b62fb69799339441aa9f4fd95cf200e, type: 3}
+    - name: Enemy 4
+      currentSpawnType: 3
+      prefab: {fileID: 6201286464125787098, guid: a1d658df251df774c984e1ba83b67332, type: 3}
+  - name: Level 4
+    timeBetweenSpawns: 5
+    minTimeBetweenSpawns: 0
+    spawnAccelerationSpeed: 0
+    enemiesSpawn:
+    - name: Enemy 1
+      currentSpawnType: 0
+      prefab: {fileID: 8336016372367363706, guid: 19990077d20bd8b4dad5de76220a63d1, type: 3}
+    - name: Enemy 2
+      currentSpawnType: 5
+      prefab: {fileID: 8983871431691095883, guid: 629eca2284877c6469a79d72ad541af1, type: 3}
+    - name: Enemy 3
+      currentSpawnType: 0
+      prefab: {fileID: 8336016372367363706, guid: c18ab1ed87b5e3c41bd5ba8239847c8e, type: 3}
+  - name: Level 5
+    timeBetweenSpawns: 5
+    minTimeBetweenSpawns: 0
+    spawnAccelerationSpeed: 0
+    enemiesSpawn: []
