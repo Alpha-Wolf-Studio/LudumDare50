@@ -16,11 +16,12 @@ public class EnemyManager : MonoBehaviour
 
         [Header("Enemies References")]
         public List<GameObject> airEnemiesPrefab;
+        public List<GameObject> airSideEnemiesPrefab;
         public List<GameObject> onWaterEnemiesPrefab;
         public List<GameObject> underWaterEnemiesPrefab;
     }
 
-    private enum SpawnType { UNDERWATER, ONWATER, AIR, SIZE}
+    private enum SpawnType { UNDERWATER, ONWATER, AIR, AIR_SIDE, SIZE}
 
     [SerializeField] private List<LevelSpawnConfigurations> configurations;
 
@@ -89,6 +90,14 @@ public class EnemyManager : MonoBehaviour
 
         SpawnType spawnType = (SpawnType)Random.Range(0, (int)SpawnType.SIZE);
 
+        var valid = CheckIfTypeIsValid(spawnType);
+        if (valid == typeValidity.COMPLETE_NULL) return;
+
+        while (CheckIfTypeIsValid(spawnType) != typeValidity.OK)
+        {
+            spawnType = (SpawnType)Random.Range(0, (int)SpawnType.SIZE);
+        }
+
         Camera camera = Camera.main;
 
         Vector2 minCamera = camera.ScreenToWorldPoint(new Vector2(0, 0));
@@ -139,6 +148,20 @@ public class EnemyManager : MonoBehaviour
 
                 break;
 
+            case SpawnType.AIR_SIDE:
+
+                int airSideSpawnIndex = Random.Range(0, currentConfiguration.airSideEnemiesPrefab.Count);
+                enemyToSpawn = currentConfiguration.onWaterEnemiesPrefab[airSideSpawnIndex];
+
+                var airSideSpriteRenderer = enemyToSpawn.GetComponent<SpriteRenderer>();
+                if (airSideSpriteRenderer) EnemyGraphicBoundsExtents = airSideSpriteRenderer.bounds.extents;
+
+                int newRandomDirection = Random.Range(0, 2);
+                newSpawnPosition.x += newRandomDirection == 0 ? minCamera.x - EnemyGraphicBoundsExtents.x : maxCamera.x + EnemyGraphicBoundsExtents.x;
+                newSpawnPosition.y = maxCamera.y - EnemyGraphicBoundsExtents.y;
+
+                break;
+
             default:
                 break;
         }
@@ -150,4 +173,38 @@ public class EnemyManager : MonoBehaviour
 
         
     }
+
+    enum typeValidity { COMPLETE_NULL, TYPE_NULL, OK}
+
+    private typeValidity CheckIfTypeIsValid(SpawnType type) 
+    {
+        int underWaterAmount = currentConfiguration.underWaterEnemiesPrefab.Count;
+        int onWaterAmount = currentConfiguration.onWaterEnemiesPrefab.Count;
+        int airAmount = currentConfiguration.airEnemiesPrefab.Count;
+        int airSideAmount = currentConfiguration.airSideEnemiesPrefab.Count;
+
+        int fullAmount = underWaterAmount + onWaterAmount + airAmount + airSideAmount;
+
+        if (fullAmount == 0) return typeValidity.COMPLETE_NULL;
+
+
+        switch (type)
+        {
+            case SpawnType.UNDERWATER:
+                if (currentConfiguration.underWaterEnemiesPrefab.Count > 0) return typeValidity.OK;
+                break;
+            case SpawnType.ONWATER:
+                if (currentConfiguration.onWaterEnemiesPrefab.Count > 0) return typeValidity.OK;
+                break;
+            case SpawnType.AIR:
+                if (currentConfiguration.airEnemiesPrefab.Count > 0) return typeValidity.OK;
+                break;
+            case SpawnType.AIR_SIDE:
+                if (currentConfiguration.airSideEnemiesPrefab.Count > 0) return typeValidity.OK;
+                break;
+        }
+
+        return typeValidity.TYPE_NULL;
+    }
+
 }
