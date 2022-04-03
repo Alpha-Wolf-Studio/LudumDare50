@@ -16,20 +16,16 @@ public class EnemyManager : MonoBehaviour
         public float spawnAccelerationSpeed;
 
         [Header("Enemies References")]
-        public List<EnemySpawn> enemiesPrefab;
+        public List<EnemySpawn> enemiesSpawn;
     }
 
-    private void OnValidate()
-    {
-        for (int i = 0; i < configurations.Count; i++)
-        {
-            configurations[i].SetName("Level " + (i + 1).ToString());
-        }
-    }
+
 
     [System.Serializable]
     public class EnemySpawn 
     {
+        [SerializeField][HideInInspector] private string name;
+        public void SetName(string name) => this.name = name; 
         public enum SpawnType { UNDERWATER, ONWATER, AIR, AIR_SIDE, AIR_CENTER, WATER_CENTER}
         public SpawnType currentSpawnType;
         public GameObject prefab;
@@ -175,9 +171,9 @@ public class EnemyManager : MonoBehaviour
             Debug.LogWarning("EnemyManager sin configuracion actual encontrada. Se setea la primera de la lista");
         }
 
-        if (currentConfiguration.enemiesPrefab.Count == 0) return;
-        int enemyIndex = Random.Range(0, currentConfiguration.enemiesPrefab.Count);
-        var enemyToSpawn = currentConfiguration.enemiesPrefab[enemyIndex];
+        if (currentConfiguration.enemiesSpawn.Count == 0) return;
+        int enemyIndex = Random.Range(0, currentConfiguration.enemiesSpawn.Count);
+        var enemyToSpawn = currentConfiguration.enemiesSpawn[enemyIndex];
 
         Vector3 newSpawnPosition = enemyToSpawn.GetSpawnPosition(currentPlayer.transform.position);
 
@@ -187,5 +183,17 @@ public class EnemyManager : MonoBehaviour
         if(enemyMovement) enemyMovement.SetNewTarget(currentPlayer.transform);
 
         
+    }
+
+    private void OnValidate()
+    {
+        for (int i = 0; i < configurations.Count; i++)
+        {
+            configurations[i].SetName("Level " + (i + 1).ToString());
+            for (int j = 0; j < configurations[i].enemiesSpawn.Count; j++)
+            {
+                configurations[i].enemiesSpawn[j].SetName("Enemy " + (j + 1).ToString());
+            }
+        }
     }
 }

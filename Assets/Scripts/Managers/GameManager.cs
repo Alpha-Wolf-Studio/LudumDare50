@@ -33,15 +33,6 @@ public class GameManager : MonoBehaviour
     {
         player.OnDied += PlayerDied;
     }
-
-    private void OnValidate()
-    {
-        for (int i = 0; i < timesConfigurations.Count; i++)
-        {
-            timesConfigurations[i].SetName("Level " + (i + 1).ToString());
-        }
-    }
-
     private void PlayerDied() 
     {
         ChangeTimeScale(0);
@@ -95,6 +86,14 @@ public class GameManager : MonoBehaviour
     public void ChangeTimeScale(float newScale) 
     {
         Time.timeScale = newScale;
+    }
+
+    private void OnValidate()
+    {
+        for (int i = 0; i < timesConfigurations.Count; i++)
+        {
+            timesConfigurations[i].SetName("Level " + (i + 1).ToString());
+        }
     }
 
 }

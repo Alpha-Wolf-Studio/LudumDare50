@@ -16,14 +16,6 @@ public class CameraManager : MonoBehaviour
         public float sizeByLevel;
     }
 
-    private void OnValidate()
-    {
-        for (int i = 0; i < camerasConfigurations.Count; i++)
-        {
-            camerasConfigurations[i].SetName("Level " + (i + 1).ToString());
-        }
-    }
-
     private IEnumerator IEnumeratorChangeSize;
 
     public void SetNewLevel(int level) 
@@ -42,6 +34,15 @@ public class CameraManager : MonoBehaviour
             cameraMain.orthographicSize = Mathf.Lerp(startingSize, camerasConfigurations[level].sizeByLevel, t);
             t += Time.deltaTime;
             yield return null;
+        }
+    }
+
+
+    private void OnValidate()
+    {
+        for (int i = 0; i < camerasConfigurations.Count; i++)
+        {
+            camerasConfigurations[i].SetName("Level " + (i + 1).ToString());
         }
     }
 
