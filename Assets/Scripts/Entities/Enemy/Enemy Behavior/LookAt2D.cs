@@ -5,7 +5,8 @@ using UnityEngine;
 public class LookAt2D : MonoBehaviour
 {
 
-    [SerializeField] forwardAligment axisToAlign = forwardAligment.FRONT;
+    [SerializeField] bool invertX = false;
+    [SerializeField] forwardAligment axisDirection = forwardAligment.FRONT;
     enum forwardAligment { FRONT, BACK, UP, DOWN}
 
     private Transform target = null;
@@ -16,23 +17,31 @@ public class LookAt2D : MonoBehaviour
         if (!target) return;
         var dir = target.position - transform.position;
 
-        switch (axisToAlign)
+
+        switch (axisDirection)
         {
             case forwardAligment.FRONT:
-                transform.up = dir.normalized;
+                if (invertX) transform.right = dir.normalized;
+                else transform.up = dir.normalized;
+
                 break;
             case forwardAligment.BACK:
-                transform.up = -dir.normalized;
+                if (invertX) transform.right = -dir.normalized;
+                else transform.up = -dir.normalized;
+
                 break;
             case forwardAligment.UP:
-                transform.up = Vector3.Cross(Vector3.forward,  dir.normalized);
+                if (invertX) transform.right = Vector3.Cross(Vector3.forward, dir.normalized);
+                else transform.up = Vector3.Cross(Vector3.forward, dir.normalized);
+
                 break;
+
             case forwardAligment.DOWN:
-                transform.up = Vector3.Cross(-Vector3.forward, dir.normalized);
+                if (invertX) transform.right = Vector3.Cross(-Vector3.forward, dir.normalized);
+                else transform.up = Vector3.Cross(-Vector3.forward, dir.normalized);
                 break;
             default:
                 break;
         }
-
     }
 }
