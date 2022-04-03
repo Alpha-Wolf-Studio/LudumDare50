@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5852092767952832204}
   - component: {fileID: 4810720016633376225}
   m_Layer: 6
-  m_Name: Enemy 4 Popeye
+  m_Name: Popeye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -162,9 +162,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43659a6df23cdf743a5ad5dcfb23ae66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 0
-  frequency: 0
-  magnitude: 0
+  speed: 1
+  frequency: 3
+  magnitude: 1.5
 --- !u!114 &4810720016633376225
 MonoBehaviour:
   m_ObjectHideFlags: 0

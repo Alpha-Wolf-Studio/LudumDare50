@@ -14,9 +14,8 @@ GameObject:
   - component: {fileID: -4308719567181180198}
   - component: {fileID: 1188911462297031776}
   - component: {fileID: -2734110877518620068}
-  - component: {fileID: 615916261162922994}
   m_Layer: 6
-  m_Name: Enemy 3 Penguin
+  m_Name: Air Side
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -164,15 +163,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arcOffset: 1
   speed: 1
---- !u!114 &615916261162922994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6201286464125787098}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a7a59454c229c324f9bb31bba5d05d7f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
