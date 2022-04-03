@@ -20,6 +20,9 @@ public class DayTimer : MonoBehaviour
 
         images[0].anchoredPosition = new Vector2(0f, height);
         images[images.Length - 1].anchoredPosition = new Vector2(0f, end);
+
+        //bug parche, la 2da imagen bajaba 1 frame antes que la 3era provocando esa linea
+        images[images.Length - 1].transform.localScale += new Vector3(0f, 0.01f,0f);
     }
 
     private void Update()
