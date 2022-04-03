@@ -9,6 +9,7 @@ public class BoatMovement : MovementBase
     [Header("Forward Config")]
     [SerializeField] float forwardSpeed = 0.2f;
     [SerializeField] private GameObject bullet;
+    [SerializeField] private Transform bulletSpawnTransform;
 
     private float currentLerpTime;
     private float invertedCurrentLerpTime;
@@ -39,6 +40,7 @@ public class BoatMovement : MovementBase
         startPos = transform.position;
         if(startPos.x < target.position.x)
         {
+            transform.Rotate(0, 180, 0);
             comesFromLeft = true;
         }
         speedAux = forwardSpeed;
@@ -50,7 +52,7 @@ public class BoatMovement : MovementBase
         {
             alreadyShooted = true;
             shootPos = transform.position;
-            var bulletInstance = Instantiate(bullet, transform.position, Quaternion.identity);
+            var bulletInstance = Instantiate(bullet, bulletSpawnTransform.position, Quaternion.identity);
             var bulletMovement = bulletInstance.GetComponent<CurveBulletMovement>();
             int curveBulletDamage = GetComponent<Entity>().Damage;
             bulletMovement.SetBullet(curveBulletDamage, bulletSpeed);
