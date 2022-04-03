@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -5,9 +6,15 @@ public class ShipPlayer : Entity
 {
     [SerializeField] private LayerMask enemyMask = 0;
     [SerializeField] private Image imageWaterShip;
+    [SerializeField] private float sinkingCoef;
+    [SerializeField] private float speedSinking;
+    [SerializeField] private float sinkingRepairClick;
+    [SerializeField] private float currentLive;
+
     void Update()
     {
         ClickAttack();
+        SinkingShip();
         UpdateUi();
     }
     private void ClickAttack()
@@ -27,8 +34,20 @@ public class ShipPlayer : Entity
             }
         }
     }
-    void UpdateUi()
+    private void SinkingShip()
     {
-        imageWaterShip.fillAmount = (maxLives - lives) / (float) maxLives;
+        sinkingCoef = 1 - lives / (float) maxLives;
+        currentLive -= sinkingCoef * speedSinking * Time.deltaTime;
+
+    }
+    public void RepairShip()
+    {
+        currentLive += sinkingRepairClick;
+        if (currentLive > 100) 
+            currentLive = 100;
+    }
+    private void UpdateUi()
+    {
+        imageWaterShip.fillAmount = 1 - currentLive / 100;
     }
 }
