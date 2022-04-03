@@ -4,84 +4,106 @@ using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(BoxCollider2D))]
-
 public class BoatMovement : MovementBase
 {
-    [SerializeField] private bool hasEnteredIntoTheScreen;
-    [Header("Boat Config")]
-    [SerializeField] private float speed;
-    [SerializeField] private float frequency;
-    [SerializeField] private float magnitude;
-    [SerializeField] private float speedAux;
-    [SerializeField] private float distanceToMove;
+    [Header("Forward Config")]
+    [SerializeField] float forwardSpeed = 0.2f;
     [SerializeField] private GameObject bullet;
-    [SerializeField] private float timeToShoot;
-    [SerializeField] private float timeElapsed;
-    [SerializeField] private bool bulletHasBeenShooted;
-    private Rigidbody2D rb;
-    private BoxCollider2D col;
-    private SpriteRenderer spr;
-    private Vector3 pos;
-    private Vector3 startPos;
-    private Vector3 axis;
-    private Vector3 direction;
 
+    private float currentLerpTime;
+    private float invertedCurrentLerpTime;
+
+    private Rigidbody2D rb;
+    private Vector3 startPos;
+    private Vector3 pos;
+    private Vector3 shootPos;
+    private float distanceToPlayer;
+    private float bulletSpeed = 0.2f;
+    private float speedAux;
+    private bool alreadyShooted;
+    private bool comesFromLeft;
+    private Vector2 minCameraPoint;
+    private Vector2 maxCameraPoint;
+    private Vector3 bounds;
+    private Camera cam;
+
+    // Start is called before the first frame update
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<BoxCollider2D>();
-        spr = GetComponent<SpriteRenderer>();
+        cam = Camera.main;
     }
-
-    // Start is called before the first frame update
     void Start()
     {
         startPos = transform.position;
-        pos = transform.position;
-        direction = (target.transform.position - transform.position).normalized;
-        axis = transform.right;
-        speedAux = speed;
+        if(startPos.x < target.position.x)
+        {
+            comesFromLeft = true;
+        }
+        speedAux = forwardSpeed;
+    }
+
+    private void Update()
+    {
+        if (currentLerpTime > 0.5f && !alreadyShooted)
+        {
+            alreadyShooted = true;
+            shootPos = transform.position;
+            var bulletInstance = Instantiate(bullet, transform.position, Quaternion.identity);
+            var bulletMovement = bulletInstance.GetComponent<CurveBulletMovement>();
+            int curveBulletDamage = GetComponent<Entity>().Damage;
+            bulletMovement.SetBullet(curveBulletDamage, bulletSpeed);
+            bulletMovement.SetNewTarget(target);
+        }
+        minCameraPoint = cam.ScreenToWorldPoint(new Vector2(0, 0));
+        maxCameraPoint = cam.ScreenToWorldPoint(new Vector2(cam.pixelWidth, cam.pixelHeight));
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (!hasEnteredIntoTheScreen && spr.isVisible)
-        {
-            hasEnteredIntoTheScreen = true;
-        }
-        if (!spr.isVisible && hasEnteredIntoTheScreen)
-        {
-            Destroy(gameObject);
-        }
-        if (Vector3.Distance(transform.position,startPos) >= distanceToMove)
-        {
-            speed = 0;
-        }
-        if (speed == 0 && !bulletHasBeenShooted)
-        {
-            timeElapsed += Time.deltaTime;
-            if (timeElapsed > timeToShoot - 1)
-            {
-                bulletHasBeenShooted = true;
-                GameObject bulletInstance = Instantiate(bullet, transform.position, Quaternion.identity);
-                bulletInstance.GetComponent<ForwardMovement>().SetNewTarget(target);
-            }
-        }
-        if (speed == 0 && bulletHasBeenShooted)
-        {
-            timeElapsed += Time.deltaTime;
-            if (timeElapsed > timeToShoot)
-            {
-                speed = -speedAux;
-            }
-        }
-    }
-
     private void FixedUpdate()
     {
-        pos += direction * Time.deltaTime * speed;
-        rb.MovePosition(pos + axis * Mathf.Sin(Time.time * frequency) * magnitude);
+        if (!alreadyShooted)
+        {
+            currentLerpTime += Time.deltaTime * forwardSpeed;
+            rb.MovePosition(Vector3.Lerp(startPos, target.transform.position, currentLerpTime));
+        }
+        else
+        {
+            invertedCurrentLerpTime += Time.deltaTime * forwardSpeed;
+            if (!comesFromLeft)
+            {
+                rb.MovePosition(Vector3.Lerp(shootPos, new Vector3(maxCameraPoint.x + GetComponent<SpriteRenderer>().bounds.extents.x, shootPos.y, 0), invertedCurrentLerpTime));
+                if(invertedCurrentLerpTime >= 1)
+                {
+                    Destroy(gameObject);
+                }
+            }
+            else
+            {
+                rb.MovePosition(Vector3.Lerp(shootPos, new Vector3(minCameraPoint.x - GetComponent<SpriteRenderer>().bounds.extents.x, shootPos.y, 0), invertedCurrentLerpTime));
+                if (invertedCurrentLerpTime >= 1)
+                {
+                    Destroy(gameObject);
+                }
+            }
+            
+            
+        }
+        
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
