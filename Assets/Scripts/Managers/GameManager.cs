@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
 
     [Header("References")]
     [SerializeField] private EnemyManager enemyManager;
+    [SerializeField] private CameraManager cameraManager;
     [SerializeField] private ShipPlayer player;
     [Header("Configuration")]
     [SerializeField] private List<LevelsTimeConfigurations> timesConfigurations;
@@ -55,6 +56,7 @@ public class GameManager : MonoBehaviour
     private void SetCurrentLevel() 
     {
         enemyManager.SetNewLevel(currentLevel, player);
+        cameraManager.SetNewLevel(currentLevel);
     }
 
     private void StartCurrentLevel()
