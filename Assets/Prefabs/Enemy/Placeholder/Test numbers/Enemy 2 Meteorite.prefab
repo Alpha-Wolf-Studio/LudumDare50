@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2880889942775131401}
   - component: {fileID: -1289368003577344024}
   - component: {fileID: 1626246039535761141}
+  - component: {fileID: 4352295804745247045}
   m_Layer: 6
   m_Name: Enemy 2 Meteorite
   m_TagString: Untagged
@@ -163,3 +164,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   arcOffset: 1
   speed: 1
+--- !u!114 &4352295804745247045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000626234226757436}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a59454c229c324f9bb31bba5d05d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
