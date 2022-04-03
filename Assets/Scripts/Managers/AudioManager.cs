@@ -5,12 +5,17 @@ public class AudioManager : MonoBehaviourSingleton<AudioManager>
 {
     private UiSliderRef sliders;    // Se busca automaticamente
 
+    [Header("Main Configuration"), Space]
     public AudioMixer audioMixer;
-
+    [SerializeField] private AudioSource audioSource = null;
     [SerializeField] private float lastVolMusic;
     [SerializeField] private float lastVolEffect;
     [SerializeField] private bool isMusic = true;
     [SerializeField] private bool isEffect = true;
+
+    [Header("Music clips"), Space]
+    [SerializeField] private AudioClip menuMusic = null;
+    [SerializeField] private AudioClip[] gameplayMusics = null;
 
     public void OnStart()
     {
@@ -56,5 +61,15 @@ public class AudioManager : MonoBehaviourSingleton<AudioManager>
         isEffect = !isEffect;
         audioMixer.SetFloat("VolEffect", isEffect ? lastVolEffect : -80);
         sliders.buttonEffect.image.color = isEffect ? Color.green : Color.red;
+    }
+    public void PlayGameplayMusic(int level)
+    {
+        audioSource.clip = gameplayMusics[level];
+        audioSource.Play();
+    }
+    public void PlayMenuMusic()
+    {
+        audioSource.clip = menuMusic;
+        audioSource.Play();
     }
 }
