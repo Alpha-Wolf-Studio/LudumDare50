@@ -182,6 +182,9 @@ public class EnemyManager : MonoBehaviour
         var enemyMovement = enemyGameobject.GetComponent<MovementBase>();
         if(enemyMovement) enemyMovement.SetNewTarget(currentPlayer.transform);
 
+        var enemyLookAt = enemyGameobject.GetComponent<LookAt2D>();
+        if (enemyLookAt) enemyLookAt.SetTarget(currentPlayer.transform);
+
         
     }
 
