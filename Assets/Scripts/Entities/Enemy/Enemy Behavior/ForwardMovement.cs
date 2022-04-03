@@ -6,10 +6,12 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class ForwardMovement : MovementBase
 {
-    [Header("Lerp Config")]
-    [SerializeField] private float lerpTime = 1f;
-    [SerializeField] private float currentLerpTime;
-    [SerializeField] private bool isLerping;
+    [Header("Forward Config")]
+    [SerializeField] float forwardSpeed = 1f;
+
+    private float lerpTime = 1f;
+    private float currentLerpTime;
+    private bool isLerping;
 
 
     private Rigidbody2D rb;
@@ -31,7 +33,7 @@ public class ForwardMovement : MovementBase
     {
         if (isLerping)
         {
-            currentLerpTime += Time.deltaTime;
+            currentLerpTime += Time.deltaTime * forwardSpeed;
 
             if (currentLerpTime > lerpTime)
             {
