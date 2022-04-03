@@ -10,12 +10,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2663116312235228318}
   - component: {fileID: 4144729841932088542}
+  - component: {fileID: 642773704700804758}
   - component: {fileID: 541768964194673215}
   - component: {fileID: 2207337932966205936}
-  - component: {fileID: 642773704700804758}
-  - component: {fileID: 8629969099852247403}
+  - component: {fileID: -6540640486432764916}
   m_Layer: 6
-  m_Name: Enemy 1 Water
+  m_Name: Enemy 1 Siren
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,6 +86,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &642773704700804758
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 348154605158599344}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &541768964194673215
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -124,32 +145,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16caeaaa15bafd64dbe1529067b8205c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lives: 1
+  maxLives: 0
   damage: 1
   color: {r: 0, g: 0, b: 0, a: 0}
   damageTextPrefab: {fileID: 0}
---- !u!50 &642773704700804758
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 348154605158599344}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &8629969099852247403
+--- !u!114 &-6540640486432764916
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,9 +158,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 348154605158599344}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f6e6659e138c14384d27507c755b78, type: 3}
+  m_Script: {fileID: 11500000, guid: 43659a6df23cdf743a5ad5dcfb23ae66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpTime: 1
-  currentLerpTime: 0
-  isLerping: 1
+  speed: 0
+  frequency: 0
+  magnitude: 0
