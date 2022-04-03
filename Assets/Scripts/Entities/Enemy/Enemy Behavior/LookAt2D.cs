@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class LookAt2D : MonoBehaviour
 {
+
+    [SerializeField] forwardAligment axisToAlign = forwardAligment.FRONT;
+    enum forwardAligment { FRONT, BACK, UP, DOWN}
+
     private Transform target = null;
     public void SetTarget(Transform target) => this.target = target;
 
@@ -11,7 +15,24 @@ public class LookAt2D : MonoBehaviour
     {
         if (!target) return;
         var dir = target.position - transform.position;
-        var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        switch (axisToAlign)
+        {
+            case forwardAligment.FRONT:
+                transform.up = dir.normalized;
+                break;
+            case forwardAligment.BACK:
+                transform.up = -dir.normalized;
+                break;
+            case forwardAligment.UP:
+                transform.up = Vector3.Cross(Vector3.forward,  dir.normalized);
+                break;
+            case forwardAligment.DOWN:
+                transform.up = Vector3.Cross(-Vector3.forward, dir.normalized);
+                break;
+            default:
+                break;
+        }
+
     }
 }

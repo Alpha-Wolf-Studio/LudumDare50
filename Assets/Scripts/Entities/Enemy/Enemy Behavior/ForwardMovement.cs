@@ -9,10 +9,7 @@ public class ForwardMovement : MovementBase
     [Header("Forward Config")]
     [SerializeField] float forwardSpeed = 1f;
 
-    private float lerpTime = 1f;
     private float currentLerpTime;
-    private bool isLerping;
-
 
     private Rigidbody2D rb;
     private Vector3 startPos;
@@ -31,18 +28,7 @@ public class ForwardMovement : MovementBase
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isLerping)
-        {
-            currentLerpTime += Time.deltaTime * forwardSpeed;
-
-            if (currentLerpTime > lerpTime)
-            {
-                currentLerpTime = lerpTime;
-                isLerping = false;
-            }
-
-            float percentComplete = currentLerpTime / lerpTime;
-            rb.MovePosition(Vector3.Lerp(startPos, target.transform.position, percentComplete));
-        }
+        currentLerpTime += Time.deltaTime * forwardSpeed;
+        rb.MovePosition(Vector3.Lerp(startPos, target.transform.position, currentLerpTime));
     }
 }

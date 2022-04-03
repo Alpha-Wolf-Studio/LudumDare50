@@ -7,9 +7,9 @@ using UnityEngine;
 public class ZigZagMovement : MovementBase
 {
     [Header("ZigZag Config")]
-    [SerializeField] private float speed;
-    [SerializeField] private float frequency;
-    [SerializeField] private float magnitude;
+    [SerializeField] private float speed = 1;
+    [SerializeField] private float frequency = 3;
+    [SerializeField] private float magnitude = 1.5f;
     private Rigidbody2D rb;
     private Vector3 pos;
     private Vector3 axis;
