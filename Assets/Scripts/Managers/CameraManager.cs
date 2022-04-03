@@ -6,6 +6,7 @@ public class CameraManager : MonoBehaviour
 {
     [SerializeField] private List<CameraConfiguration> camerasConfigurations;
     [SerializeField] private Camera cameraMain;
+    [SerializeField] private float startSize = 0f;
 
     [System.Serializable]
     class CameraConfiguration 
@@ -17,6 +18,11 @@ public class CameraManager : MonoBehaviour
     }
 
     private IEnumerator IEnumeratorChangeSize;
+
+    private void Start()
+    {
+        cameraMain.orthographicSize = startSize;
+    }
 
     public void SetNewLevel(int level) 
     {
