@@ -38,6 +38,11 @@ public class Entity : MonoBehaviour
             
             if (lives <= 0)
             {
+                if (gameObject.CompareTag("Player"))
+                {
+                    lives = 0;
+                    return;
+                }
                 dead = true;
                 OnDied?.Invoke();
                 Destroy(gameObject); //Cambiar si hay animacion
