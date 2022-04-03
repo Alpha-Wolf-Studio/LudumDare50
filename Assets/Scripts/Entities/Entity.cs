@@ -18,6 +18,7 @@ public class Entity : MonoBehaviour
     public int Damage => damage;
 
     public System.Action OnDied;
+    public System.Action<int> OnDamageReceive;
 
     private void Start()
     {
@@ -29,6 +30,7 @@ public class Entity : MonoBehaviour
         if (!dead)
         {
             lives -= damageAmount;
+            OnDamageReceive?.Invoke(damageAmount);
             if (damageTextPrefab != null)
             {
                 var damageTextInstance = Instantiate(damageTextPrefab, transform.position, Quaternion.identity);

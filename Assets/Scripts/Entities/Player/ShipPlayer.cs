@@ -4,12 +4,26 @@ using UnityEngine.UI;
 
 public class ShipPlayer : Entity
 {
+    [Header("Enemy Attack Config")]
     [SerializeField] private LayerMask enemyMask = 0;
+
+    [Header("Repair Ship Config")]
     [SerializeField] private Image imageWaterShip;
-    [SerializeField] private float sinkingCoef;
-    [SerializeField] private float speedSinking;
-    [SerializeField] private float sinkingRepairClick;
-    [SerializeField] private float currentLive;
+    [SerializeField] private float sinkingSpeed = 1;
+    
+    private float currentLife;
+    private bool sinking = false;
+    public bool Sinking => sinking;
+
+    private void Awake()
+    {
+        OnDamageReceive += ReduceCurrentLife;
+    }
+
+    private void Start()
+    {
+        currentLife = (float)maxLives;
+    }
 
     void Update()
     {
@@ -23,7 +37,6 @@ public class ShipPlayer : Entity
         {
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
-
             if (hit.collider != null)
             {
                 if (Utils.CheckLayerInMask(enemyMask, hit.collider.gameObject.layer))
@@ -31,28 +44,44 @@ public class ShipPlayer : Entity
                     Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
                     enemy.RecieveDamage(damage);
                 }
+                else if (gameObject.layer == hit.collider.gameObject.layer)
+                {
+                    if (sinking)
+                    {
+                        RepairShip();
+                    }
+                }
+
             }
         }
+
     }
     private void SinkingShip()
     {
-        sinkingCoef = 1 - lives / (float) maxLives;
-        currentLive -= sinkingCoef * speedSinking * Time.deltaTime;
-        if (currentLive < 0)
+        if (sinking) 
         {
-            dead = true;
-            OnDied?.Invoke();
-            Destroy(gameObject);
+            currentLife -= sinkingSpeed * Time.deltaTime;
+            if (currentLife < 0)
+            {
+                dead = true;
+                OnDied?.Invoke();
+                Destroy(gameObject);
+            }
         }
     }
     public void RepairShip()
     {
-        currentLive += sinkingRepairClick;
-        if (currentLive > 100) 
-            currentLive = 100;
+        sinking = false;
     }
+
+    private void ReduceCurrentLife(int life) 
+    {
+        currentLife -= life;
+        sinking = true;
+    }
+
     private void UpdateUi()
     {
-        imageWaterShip.fillAmount = 1 - currentLive / 100;
+        imageWaterShip.fillAmount = 1 - currentLife / maxLives;
     }
 }
