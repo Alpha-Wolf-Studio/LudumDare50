@@ -3622,7 +3622,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Rocio Michi Ojeda
+  m_text: 'Rocio Michi Ojeda
+
+    Francisco Sanchez'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: af7da2e09b7b3d34aa12663536acfc38, type: 2}
   m_sharedMaterial: {fileID: -2875350518102008606, guid: af7da2e09b7b3d34aa12663536acfc38, type: 2}
@@ -4345,7 +4347,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Juan Francisco Poluyan
+  m_text: "Juan Francisco Poluyan\n "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: af7da2e09b7b3d34aa12663536acfc38, type: 2}
   m_sharedMaterial: {fileID: -2875350518102008606, guid: af7da2e09b7b3d34aa12663536acfc38, type: 2}
@@ -5343,8 +5345,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 1816325252}
   - {fileID: 1819494675}
+  - {fileID: 1816325252}
   m_Father: {fileID: 639490565}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5460,7 +5462,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Agustin Pablo Bosco
+  m_text: "Agustin Pablo Bosco\n "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: af7da2e09b7b3d34aa12663536acfc38, type: 2}
   m_sharedMaterial: {fileID: -2875350518102008606, guid: af7da2e09b7b3d34aa12663536acfc38, type: 2}
@@ -5703,7 +5705,7 @@ RectTransform:
   m_Children:
   - {fileID: 138804813}
   m_Father: {fileID: 1716647461}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
@@ -5840,7 +5842,7 @@ RectTransform:
   - {fileID: 938024059}
   - {fileID: 1491547447}
   m_Father: {fileID: 1716647461}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
