@@ -43,3 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 596b58f533d72d64cb426d7fd8fbe797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyManager: {fileID: 0}
+  cameraManager: {fileID: 0}
+  player: {fileID: 0}
+  startDelay: 3
+  timesConfigurations: []
