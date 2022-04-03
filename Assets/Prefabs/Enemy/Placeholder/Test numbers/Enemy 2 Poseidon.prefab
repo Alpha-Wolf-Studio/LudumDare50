@@ -168,7 +168,7 @@ MonoBehaviour:
   speedAux: 0
   distanceToMove: 2
   movementVector: {x: 0, y: 0, z: 0}
-  lightingBolt: {fileID: 395632166598894242, guid: b74683d7ed86bf94a89f7a8bdf2de611, type: 3}
+  lightingBolt: {fileID: 395632166598894242, guid: 98a470e82a3da014699721024a6d3a66, type: 3}
   timeToSummon: 4
   timeElapsed: 0
   lightingHasBeenSummoned: 0
