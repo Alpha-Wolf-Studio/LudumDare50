@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 4473584878930211173}
   - component: {fileID: 4473584878930211174}
   - component: {fileID: 4473584878930211175}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: LightingBoltSummoner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,13 +144,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f9c6b32a94fa7444ac84af1d8f30a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hasEnteredIntoTheScreen: 0
+  startPosition: {x: 0, y: 0, z: 0}
   speed: -5
   speedAux: 0
+  distanceToMove: 20
   movementVector: {x: 1, y: 0, z: 0}
-  hasEnteredIntoTheScreen: 0
   lightingBolt: {fileID: 3460873301608487291, guid: f0c6ce59f6cad9845a882aed029310f2, type: 3}
   timeToSummon: 2
   timeElapsed: 0
-  distanceToMove: 20
   lightingHasBeenSummoned: 0
-  startPosition: {x: 0, y: 0, z: 0}

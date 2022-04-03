@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 421086255507328530}
   - component: {fileID: 421086255507328531}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyShark
   m_TagString: Untagged
   m_Icon: {fileID: 0}

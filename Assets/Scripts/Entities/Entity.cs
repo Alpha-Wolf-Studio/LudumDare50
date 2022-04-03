@@ -14,6 +14,7 @@ public class Entity : MonoBehaviour
     protected BoxCollider2D col = null;
     protected bool dead = false;
     public int Lives => lives;
+    public int Damage => damage;
 
     public System.Action OnDied;
 

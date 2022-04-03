@@ -13,7 +13,8 @@ GameObject:
   - component: {fileID: 5829894056090083282}
   - component: {fileID: 5829894056090083283}
   - component: {fileID: 5829894056090083284}
-  m_Layer: 0
+  - component: {fileID: 6990139982575151060}
+  m_Layer: 6
   m_Name: BombardierEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,8 +145,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7de702461cb662a4c86219c96245d378, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: -2.35
-  movementVector: {x: 1, y: 0, z: 0}
+  time: 0
   bullet: {fileID: 1825146577342366670, guid: 81dcf19a69b0e084bba85debcf6159bc, type: 3}
-  hasEnteredIntoTheScreen: 0
-  timeBetweenShoots: 3
+--- !u!114 &6990139982575151060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5829894056090083285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16caeaaa15bafd64dbe1529067b8205c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lives: 2
+  damage: 1
+  color: {r: 0, g: 0, b: 0, a: 0}
+  damageTextPrefab: {fileID: 0}

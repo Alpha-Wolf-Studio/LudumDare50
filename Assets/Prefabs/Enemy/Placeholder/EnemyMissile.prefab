@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2558107052809539673}
   - component: {fileID: 2558107052809539672}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyMissile
   m_TagString: Untagged
   m_Icon: {fileID: 0}

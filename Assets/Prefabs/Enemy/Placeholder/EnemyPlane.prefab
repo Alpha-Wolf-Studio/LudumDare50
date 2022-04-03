@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2875561803204295617}
   - component: {fileID: 3584021120547542258}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: EnemyPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}

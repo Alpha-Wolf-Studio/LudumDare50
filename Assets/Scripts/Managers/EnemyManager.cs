@@ -151,7 +151,7 @@ public class EnemyManager : MonoBehaviour
             case SpawnType.AIR_SIDE:
 
                 int airSideSpawnIndex = Random.Range(0, currentConfiguration.airSideEnemiesPrefab.Count);
-                enemyToSpawn = currentConfiguration.onWaterEnemiesPrefab[airSideSpawnIndex];
+                enemyToSpawn = currentConfiguration.airSideEnemiesPrefab[airSideSpawnIndex];
 
                 var airSideSpriteRenderer = enemyToSpawn.GetComponent<SpriteRenderer>();
                 if (airSideSpriteRenderer) EnemyGraphicBoundsExtents = airSideSpriteRenderer.bounds.extents;

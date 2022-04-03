@@ -7,15 +7,16 @@ using UnityEngine;
 public class BombardmentMovement : MovementBase
 {
     [Header("Enemy Config")]
-    [SerializeField] private float speed;
-    [SerializeField] private Vector3 movementVector;
-    [SerializeField] private bool hasEnteredIntoTheScreen;
+    [SerializeField] private float time;
     [Header("Bullet Config")]
     [SerializeField] private GameObject bullet;
-    [SerializeField] private float timeBetweenShoots;
     private Rigidbody2D rb;
     private BoxCollider2D col;
     private SpriteRenderer spr;
+    private float distanceToPlayer;
+    private Vector3 startPos;
+    private bool comesFromLeft;
+    private bool alreadyShooted;
 
 
     private void Awake()
@@ -25,19 +26,41 @@ public class BombardmentMovement : MovementBase
         spr = GetComponent<SpriteRenderer>();
     }
 
-    private void FixedUpdate()
+    // Start is called before the first frame update
+    void Start()
     {
-        rb.MovePosition(transform.position + movementVector * speed * Time.deltaTime);
+        startPos = transform.position;
+        distanceToPlayer = Mathf.Abs(target.position.x - transform.position.x);
+        if(startPos.x < target.position.x)
+        {
+            comesFromLeft = true;
+        }
     }
 
-    private IEnumerator Shoot(float timeBetweenShoots)
+    private void Update()
     {
-        while (spr.isVisible && hasEnteredIntoTheScreen)
+        time += Time.deltaTime;
+        if (comesFromLeft)
         {
-            Instantiate(bullet, transform.position, Quaternion.identity);
-            yield return new WaitForSeconds(timeBetweenShoots);
-            yield return null;
+            transform.position = Vector3.Lerp(startPos, startPos + new Vector3(distanceToPlayer * 2, 0, 0), time);
         }
-        yield return null;    
+        else
+        {
+            transform.position = Vector3.Lerp(startPos, startPos - new Vector3(distanceToPlayer * 2, 0, 0), time);
+        }
+        if (time >= 0.48 && !alreadyShooted)
+        {
+            alreadyShooted = true;
+            var bulletInstance = Instantiate(bullet, transform.position, Quaternion.identity);
+            var bulletMovement = bulletInstance.GetComponent<BulletMovement>();
+            int bulletDamage = GetComponent<Entity>().Damage;
+            bulletMovement.SetBulletDamage(bulletDamage);
+            bulletMovement.SetNewTarget(target);
+        }
+        else if (time >= 1)
+        {
+            Destroy(gameObject);
+        }
     }
 }
+

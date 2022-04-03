@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6593178329939578308}
   - component: {fileID: 6593178329939578309}
   - component: {fileID: 6593178329939578314}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GrannysBag
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4cd867100b95274aa9cf7bd500369fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpTime: 1
-  currentLerpTime: 0
-  isLerping: 0
-  targett: {fileID: 0}
+  arcOffset: 1
+  speed: 1
