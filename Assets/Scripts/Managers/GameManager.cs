@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private CameraManager cameraManager;
     [SerializeField] private ShipPlayer player;
     [Header("Configuration")]
+    [SerializeField] private float startDelay = 0f;
     [SerializeField] private List<LevelsTimeConfigurations> timesConfigurations;
 
     private int currentLevel = -1;
@@ -33,6 +34,12 @@ public class GameManager : MonoBehaviour
     {
         player.OnDied += PlayerDied;
     }
+
+    private void Start()
+    {
+        Invoke(nameof(StartNewLevel), startDelay);
+    }
+
     private void PlayerDied() 
     {
         ChangeTimeScale(0);
