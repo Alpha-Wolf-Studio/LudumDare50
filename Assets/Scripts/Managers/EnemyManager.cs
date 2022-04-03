@@ -7,7 +7,8 @@ public class EnemyManager : MonoBehaviour
     [System.Serializable]
     public class LevelSpawnConfigurations 
     {
-        public string name;
+        [SerializeField][HideInInspector] private string name;
+        public void SetName(string name) => this.name = name;
 
         [Header("Spawn Time Configurations")]
         public float timeBetweenSpawns;
@@ -16,6 +17,14 @@ public class EnemyManager : MonoBehaviour
 
         [Header("Enemies References")]
         public List<EnemySpawn> enemiesPrefab;
+    }
+
+    private void OnValidate()
+    {
+        for (int i = 0; i < configurations.Count; i++)
+        {
+            configurations[i].SetName("Level " + (i + 1).ToString());
+        }
     }
 
     [System.Serializable]
@@ -166,7 +175,7 @@ public class EnemyManager : MonoBehaviour
             Debug.LogWarning("EnemyManager sin configuracion actual encontrada. Se setea la primera de la lista");
         }
 
-        if (currentConfiguration.enemiesPrefab == null) return;
+        if (currentConfiguration.enemiesPrefab.Count == 0) return;
         int enemyIndex = Random.Range(0, currentConfiguration.enemiesPrefab.Count);
         var enemyToSpawn = currentConfiguration.enemiesPrefab[enemyIndex];
 

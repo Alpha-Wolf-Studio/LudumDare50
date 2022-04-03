@@ -7,7 +7,8 @@ public class GameManager : MonoBehaviour
     [System.Serializable]
     public class LevelsTimeConfigurations 
     {
-        public string name;
+        [SerializeField][HideInInspector] private string name;
+        public void SetName(string name) => this.name = name;
         public float timeForNextLevel;
     }
 
@@ -23,12 +24,22 @@ public class GameManager : MonoBehaviour
     [SerializeField] private List<LevelsTimeConfigurations> timesConfigurations;
 
     private int currentLevel = -1;
+    public int GetCurrentLevel() => currentLevel;
+
     private float currentLevelTime = 0;
     private IEnumerator timeIEnumerator;
 
     private void Awake()
     {
         player.OnDied += PlayerDied;
+    }
+
+    private void OnValidate()
+    {
+        for (int i = 0; i < timesConfigurations.Count; i++)
+        {
+            timesConfigurations[i].SetName("Level " + (i + 1).ToString());
+        }
     }
 
     private void PlayerDied() 

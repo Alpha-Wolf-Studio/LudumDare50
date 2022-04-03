@@ -4,8 +4,25 @@ using UnityEngine;
 
 public class CameraManager : MonoBehaviour
 {
-    [SerializeField] private List<float> cameraSizeByLevel;
+    [SerializeField] private List<CameraConfiguration> camerasConfigurations;
     [SerializeField] private Camera cameraMain;
+
+    [System.Serializable]
+    class CameraConfiguration 
+    {
+        [SerializeField][HideInInspector] private string name;
+        public void SetName(string name) => this.name = name;
+
+        public float sizeByLevel;
+    }
+
+    private void OnValidate()
+    {
+        for (int i = 0; i < camerasConfigurations.Count; i++)
+        {
+            camerasConfigurations[i].SetName("Level " + (i + 1).ToString());
+        }
+    }
 
     private IEnumerator IEnumeratorChangeSize;
 
@@ -22,7 +39,7 @@ public class CameraManager : MonoBehaviour
         float startingSize = cameraMain.orthographicSize;
         while (t < 1) 
         {
-            cameraMain.orthographicSize = Mathf.Lerp(startingSize, cameraSizeByLevel[level], t);
+            cameraMain.orthographicSize = Mathf.Lerp(startingSize, camerasConfigurations[level].sizeByLevel, t);
             t += Time.deltaTime;
             yield return null;
         }

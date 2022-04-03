@@ -11,11 +11,15 @@ public class GameManagerEditor : Editor
     {
         DrawDefaultInspector();
         var myScript = (GameManager)target;
-        GUILayout.Space(30f);
 
-        if (GUILayout.Button("Start Next Level"))
+        if (Application.isPlaying)
         {
-            myScript.StartNewLevel();
+            GUILayout.Label("Current Level: " + (myScript.GetCurrentLevel() + 1).ToString());
+            GUILayout.Space(10f);
+            if (GUILayout.Button("Start Next Level"))
+            {
+                myScript.StartNewLevel();
+            }
         }
     }
 }
