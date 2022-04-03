@@ -10,11 +10,8 @@ public class CurveMovement : MovementBase
     [SerializeField] private float lerpTime = 1f;
     [SerializeField] private float currentLerpTime;
     [SerializeField] private bool isLerping;
-    [SerializeField] private GameObject targett;
 
     private Vector3 startPos;
-    private Vector3 endPos;
-    private float startTime;
     private Vector3 startRelCenter;
     private Vector3 centerPoint;
     private Vector3 endRelCenter;    
@@ -32,8 +29,6 @@ public class CurveMovement : MovementBase
         startPos = transform.position;
     }
 
-    // Update is called once per frame
-
     void FixedUpdate()
     {
         GetCenter(Vector3.up);
@@ -49,7 +44,6 @@ public class CurveMovement : MovementBase
             }
 
             float percentComplete = currentLerpTime / lerpTime;
-            Debug.Log(percentComplete);
 
             rb.MovePosition(Vector3.Slerp(startRelCenter, endRelCenter, percentComplete));
         }
@@ -57,7 +51,7 @@ public class CurveMovement : MovementBase
 
     void GetCenter(Vector3 direction)
     {
-        centerPoint = (startPos + targett.transform.position) * 0.5f;
+        centerPoint = (startPos + target.transform.position) * 0.5f;
         centerPoint -= direction;
         startRelCenter = startPos - centerPoint;
         endRelCenter = target.transform.position - centerPoint;

@@ -28,7 +28,7 @@ public class ShipPlayer : Entity
                 if (Utils.CheckLayerInMask(enemyMask, hit.collider.gameObject.layer))
                 {
                     Enemy enemy = hit.collider.gameObject.GetComponent<Enemy>();
-                    enemy.RecieveDamage(-1);
+                    enemy.RecieveDamage(damage);
                 }
             }
         }

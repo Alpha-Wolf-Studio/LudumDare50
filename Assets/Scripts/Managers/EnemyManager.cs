@@ -37,9 +37,14 @@ public class EnemyManager : MonoBehaviour
 
     public void StartCurrentLevel() 
     {
-        if (spawnIEnumerator != null) StopCoroutine(spawnIEnumerator);
+        StopCurrentLevel();
         spawnIEnumerator = SpawnCoroutine();
         StartCoroutine(spawnIEnumerator);
+    }
+
+    public void StopCurrentLevel() 
+    {
+        if (spawnIEnumerator != null) StopCoroutine(spawnIEnumerator);
     }
 
     private IEnumerator SpawnCoroutine() 

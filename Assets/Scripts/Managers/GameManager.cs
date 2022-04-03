@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
 
     public System.Action OnNewLevelStarted;
 
+    public System.Action OnGameLost;
+
     [Header("References")]
     [SerializeField] private EnemyManager enemyManager;
     [SerializeField] private ShipPlayer player;
@@ -22,6 +24,17 @@ public class GameManager : MonoBehaviour
     private int currentLevel = -1;
     private float currentLevelTime = 0;
     private IEnumerator timeIEnumerator;
+
+    private void Awake()
+    {
+        player.OnDied += PlayerDied;
+    }
+
+    private void PlayerDied() 
+    {
+        ChangeTimeScale(0);
+        OnGameLost?.Invoke();
+    }
 
     public void StartNewLevel() 
     {

@@ -12,7 +12,6 @@ public class BoatMovement : MovementBase
     [SerializeField] private float speed;
     [SerializeField] private float frequency;
     [SerializeField] private float magnitude;
-    [SerializeField] private GameObject targett;
     [SerializeField] private float speedAux;
     [SerializeField] private float distanceToMove;
     [SerializeField] private GameObject bullet;
@@ -40,7 +39,7 @@ public class BoatMovement : MovementBase
     {
         startPos = transform.position;
         pos = transform.position;
-        direction = (targett.transform.position - transform.position).normalized;
+        direction = (target.transform.position - transform.position).normalized;
         axis = transform.right;
         speedAux = speed;
     }
@@ -67,7 +66,7 @@ public class BoatMovement : MovementBase
             {
                 bulletHasBeenShooted = true;
                 GameObject bulletInstance = Instantiate(bullet, transform.position, Quaternion.identity);
-                Destroy(bulletInstance, 3);
+                bulletInstance.GetComponent<ForwardMovement>().SetNewTarget(target);
             }
         }
         if (speed == 0 && bulletHasBeenShooted)

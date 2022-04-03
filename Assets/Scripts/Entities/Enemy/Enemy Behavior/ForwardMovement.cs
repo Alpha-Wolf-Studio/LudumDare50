@@ -40,7 +40,6 @@ public class ForwardMovement : MovementBase
             }
 
             float percentComplete = currentLerpTime / lerpTime;
-            Debug.Log(percentComplete);
             rb.MovePosition(Vector3.Lerp(startPos, target.transform.position, percentComplete));
         }
     }
