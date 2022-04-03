@@ -14,11 +14,15 @@ public class DayTimer : MonoBehaviour
 
     private void Start()
     {
-        height = images[0].rect.height;
-        start = height * (images.Length - 1);
-        end = -height;
+        //rota el parallax para que se vea como debe ser
+        transform.Rotate(0, 0, -180);
 
-        images[0].anchoredPosition = new Vector2(0f, height);
+
+        height = images[0].rect.height;
+        start = -height * (images.Length - 1);
+        end = height;
+
+        images[0].anchoredPosition = new Vector2(0f, -height);
         images[images.Length - 1].anchoredPosition = new Vector2(0f, end);
 
         //bug parche, la 2da imagen bajaba 1 frame antes que la 3era provocando esa linea
@@ -35,9 +39,9 @@ public class DayTimer : MonoBehaviour
         float despY = speed * Time.deltaTime;
         for (int i = 0; i < images.Length; i++)
         {
-            images[i].anchoredPosition -= new Vector2(0f, despY);
+            images[i].anchoredPosition -= new Vector2(0f, -despY);
 
-            if (images[i].anchoredPosition.y < end)
+            if (images[i].anchoredPosition.y > end)
             {
                 Vector2 pos = images[i].anchoredPosition;
                 images[i].anchoredPosition = new Vector2(pos.x, start);
