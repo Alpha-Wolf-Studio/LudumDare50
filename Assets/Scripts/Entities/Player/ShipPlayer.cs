@@ -38,7 +38,12 @@ public class ShipPlayer : Entity
     {
         sinkingCoef = 1 - lives / (float) maxLives;
         currentLive -= sinkingCoef * speedSinking * Time.deltaTime;
-
+        if (currentLive < 0)
+        {
+            dead = true;
+            OnDied?.Invoke();
+            Destroy(gameObject);
+        }
     }
     public void RepairShip()
     {
