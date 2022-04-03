@@ -5,7 +5,8 @@ using UnityEngine;
 public class Entity : MonoBehaviour
 {
     [Header("Entity Config")]
-    [SerializeField] protected int lives = 0; //cantidad de click para destruirse
+    [SerializeField] protected int maxLives; // cantidad inicial de clicks para destruirse
+    protected int lives; // cantidad de click para destruirse
     [SerializeField] protected int damage = 1;
     [Header("Damage Text Config")]
     [SerializeField] private Color color;
@@ -20,9 +21,9 @@ public class Entity : MonoBehaviour
 
     private void Start()
     {
+        lives = maxLives;
         col = GetComponent<BoxCollider2D>();
     }
-
     public void RecieveDamage(int damageAmount)
     {
         if (!dead)
