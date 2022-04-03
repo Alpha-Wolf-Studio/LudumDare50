@@ -10,12 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2692096711717377164}
   - component: {fileID: 4047746830672321740}
-  - component: {fileID: 445211635193924141}
   - component: {fileID: 667345113539303044}
-  - component: {fileID: 8532837722169481593}
-  - component: {fileID: -3277825544808050430}
+  - component: {fileID: 445211635193924141}
+  - component: {fileID: -185380873332507805}
   m_Layer: 6
-  m_Name: Bullet
+  m_Name: Projectile Trident
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86,6 +85,27 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!50 &667345113539303044
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395632166598894242}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0.1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &445211635193924141
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -112,28 +132,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.44, y: 0.44}
   m_EdgeRadius: 0
---- !u!50 &667345113539303044
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395632166598894242}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0.1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
---- !u!114 &8532837722169481593
+--- !u!114 &-185380873332507805
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,25 +141,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 395632166598894242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 55f6e6659e138c14384d27507c755b78, type: 3}
+  m_Script: {fileID: 11500000, guid: 423dff7bf70968c4b8dd11a7f0430855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpTime: 1
-  currentLerpTime: 0
-  isLerping: 1
---- !u!114 &-3277825544808050430
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 395632166598894242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 16caeaaa15bafd64dbe1529067b8205c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  lives: 0
-  damage: 1
-  color: {r: 0, g: 0, b: 0, a: 0}
-  damageTextPrefab: {fileID: 0}
