@@ -6,25 +6,16 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class BombardmentMovement : MovementBase
 {
-    [Header("Enemy Config")]
-    [SerializeField] private float time;
+    [Header("Movement Config")]
+    [SerializeField] private float speed = 1;
     [Header("Bullet Config")]
     [SerializeField] private GameObject bullet;
-    private Rigidbody2D rb;
-    private BoxCollider2D col;
-    private SpriteRenderer spr;
+    [SerializeField] private float bulletSpeed = 1;
+    private float time = 0;
     private float distanceToPlayer;
     private Vector3 startPos;
     private bool comesFromLeft;
     private bool alreadyShooted;
-
-
-    private void Awake()
-    {
-        rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<BoxCollider2D>();
-        spr = GetComponent<SpriteRenderer>();
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +30,7 @@ public class BombardmentMovement : MovementBase
 
     private void Update()
     {
-        time += Time.deltaTime;
+        time += Time.deltaTime * speed;
         if (comesFromLeft)
         {
             transform.position = Vector3.Lerp(startPos, startPos + new Vector3(distanceToPlayer * 2, 0, 0), time);
@@ -54,7 +45,7 @@ public class BombardmentMovement : MovementBase
             var bulletInstance = Instantiate(bullet, transform.position, Quaternion.identity);
             var bulletMovement = bulletInstance.GetComponent<BulletMovement>();
             int bulletDamage = GetComponent<Entity>().Damage;
-            bulletMovement.SetBulletDamage(bulletDamage);
+            bulletMovement.SetBullet(bulletDamage, bulletSpeed);
             bulletMovement.SetNewTarget(target);
         }
         else if (time >= 1)

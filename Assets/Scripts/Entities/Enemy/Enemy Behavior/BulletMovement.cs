@@ -6,7 +6,8 @@ public class BulletMovement : MovementBase
 {
     private Vector3 startPos;
     private float time = 0;
-    private int damage;
+    private int damage = 1;
+    private float speed = 1;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +17,7 @@ public class BulletMovement : MovementBase
     // Update is called once per frame
     void Update()
     {
-        time += Time.deltaTime;
+        time += Time.deltaTime * speed;
         transform.position = Vector3.Lerp(startPos, target.position, time);
     }
 
@@ -31,5 +32,9 @@ public class BulletMovement : MovementBase
         
     }
 
-    public void SetBulletDamage(int bulletDamage) => damage = bulletDamage;
+    public void SetBullet(int bulletDamage, float bulletSpeed)
+    {
+        damage = bulletDamage;
+        speed = bulletSpeed;
+    }
 }
