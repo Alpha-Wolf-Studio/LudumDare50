@@ -6,14 +6,11 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class ZigZagMovement : MovementBase
 {
-    [SerializeField] private bool hasEnteredIntoTheScreen;
     [Header("ZigZag Config")]
     [SerializeField] private float speed;
     [SerializeField] private float frequency;
     [SerializeField] private float magnitude;
     private Rigidbody2D rb;
-    private BoxCollider2D col;
-    private SpriteRenderer spr;
     private Vector3 pos;
     private Vector3 axis;
     private Vector3 direction;
@@ -22,8 +19,6 @@ public class ZigZagMovement : MovementBase
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<BoxCollider2D>();
-        spr = GetComponent<SpriteRenderer>();
     }
 
     // Start is called before the first frame update
@@ -31,20 +26,7 @@ public class ZigZagMovement : MovementBase
     {
         pos = transform.position;
         direction = (target.position - transform.position).normalized;
-        axis = transform.up;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!hasEnteredIntoTheScreen && spr.isVisible)
-        {
-            hasEnteredIntoTheScreen = true;
-        }
-        if (!spr.isVisible && hasEnteredIntoTheScreen)
-        {
-            Destroy(gameObject);
-        }
+        axis = Vector3.Cross(direction, transform.forward).normalized;
     }
 
     private void FixedUpdate()

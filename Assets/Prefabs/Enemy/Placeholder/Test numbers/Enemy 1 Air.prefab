@@ -161,6 +161,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4cd867100b95274aa9cf7bd500369fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lerpTime: 1
-  currentLerpTime: 0
-  isLerping: 1
+  arcOffset: 0.5
+  speed: 0.5

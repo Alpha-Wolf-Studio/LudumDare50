@@ -6,19 +6,13 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class CurveMovement : MovementBase
 {
-    [Header("Lerp Config")]
-    [SerializeField] private float lerpTime = 1f;
-    [SerializeField] private float currentLerpTime;
-    [SerializeField] private bool isLerping;
+    [Header("Curve movement configurations")]
+    [SerializeField] private float arcOffset = 1;
+    [SerializeField] private float speed = 1;
 
-    private Vector3 startPos;
-    private Vector3 startRelCenter;
-    private Vector3 centerPoint;
-    private Vector3 endRelCenter;    
+    private float currentLerpTime;
 
     private Rigidbody2D rb;
-
-    // Start is called before the first frame update
 
     private void Awake()
     {
@@ -26,34 +20,15 @@ public class CurveMovement : MovementBase
     }
     void Start()
     {
-        startPos = transform.position;
+        rb.gravityScale = 0;
     }
 
     void FixedUpdate()
     {
-        GetCenter(Vector3.up);
-
-        if (isLerping)
-        {
-            currentLerpTime += Time.deltaTime;
-
-            if (currentLerpTime > lerpTime)
-            {
-                currentLerpTime = lerpTime;
-                isLerping = false;
-            }
-
-            float percentComplete = currentLerpTime / lerpTime;
-
-            rb.MovePosition(Vector3.Slerp(startRelCenter, endRelCenter, percentComplete));
-        }
-    }
-
-    void GetCenter(Vector3 direction)
-    {
-        centerPoint = (startPos + target.transform.position) * 0.5f;
-        centerPoint -= direction;
-        startRelCenter = startPos - centerPoint;
-        endRelCenter = target.transform.position - centerPoint;
+        Vector2 newPosition = Vector2.Lerp(transform.position, target.position, currentLerpTime);
+        Vector2 differenceVector = target.position - transform.position;
+        newPosition += Vector2.Perpendicular(differenceVector) * Mathf.Sin(currentLerpTime) * arcOffset;
+        currentLerpTime += Time.fixedDeltaTime * speed;
+        rb.MovePosition(newPosition);
     }
 }

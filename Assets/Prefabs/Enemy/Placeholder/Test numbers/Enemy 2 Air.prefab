@@ -141,9 +141,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hasEnteredIntoTheScreen: 0
-  speed: 1
-  frequency: 2
-  magnitude: 2
+  speed: 3
+  frequency: 3
+  magnitude: 1
 --- !u!50 &2897632747101078758
 Rigidbody2D:
   serializedVersion: 4

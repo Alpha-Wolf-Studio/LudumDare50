@@ -25,26 +25,6 @@ public class BombardmentMovement : MovementBase
         spr = GetComponent<SpriteRenderer>();
     }
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (!hasEnteredIntoTheScreen && spr.isVisible)
-        {
-            hasEnteredIntoTheScreen = true;
-            StartCoroutine(Shoot(timeBetweenShoots));
-        }
-        if (!spr.isVisible && hasEnteredIntoTheScreen)
-        {
-            Destroy(gameObject);
-        }
-        
-    }
-
     private void FixedUpdate()
     {
         rb.MovePosition(transform.position + movementVector * speed * Time.deltaTime);
