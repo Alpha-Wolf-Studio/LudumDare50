@@ -32,6 +32,12 @@ public class UiMainMenuManager : MonoBehaviour
         menues[(int)Menu.Main].blocksRaycasts = true;
         menues[(int)Menu.Main].alpha = 1;
     }
+
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
+
     public void OnButtonPlay()
     {
         FadeSingleton.Get().LoadScene(FadeSingleton.SceneIndex.GAMEPLAY);

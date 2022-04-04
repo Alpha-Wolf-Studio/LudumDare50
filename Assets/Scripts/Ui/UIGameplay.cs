@@ -5,10 +5,9 @@ using UnityEngine.UI;
 
 public class UIGameplay : MonoBehaviour
 {
-
     [Header("Gameplay References")]
-    [SerializeField] GameManager gameManager;
-    [SerializeField] CanvasGroup gameplayPanelGroup;
+    [SerializeField] private GameManager gameManager;
+    [SerializeField] private CanvasGroup gameplayPanelGroup;
     [SerializeField] private Image levelBoatImage;
     [SerializeField] private TMPro.TextMeshProUGUI levelTextComponent;
     [SerializeField] private Button pauseButton;
@@ -18,6 +17,12 @@ public class UIGameplay : MonoBehaviour
     [SerializeField] private bool levelTextFade = true;
     [SerializeField] private float levelTextFadeSpeed = 1;
     [SerializeField] private float levelTextTimeOnScreen = 2;
+
+    [Header("Lost Screen References")]
+    [SerializeField] private CanvasGroup lostScreenPanelGroup;
+    [SerializeField] private TMPro.TextMeshProUGUI timeSurvivedTextComponent;
+    [SerializeField] private Button returnToMainMenuButton;
+    [SerializeField] private Button restartButton;
 
     [Header("Pause References")]
     [SerializeField] CanvasGroup pausePanelGroup;
@@ -40,7 +45,12 @@ public class UIGameplay : MonoBehaviour
         pauseButton.onClick.AddListener(PauseGame);
         resumeButton.onClick.AddListener(ResumePlay);
         mainMenuButton.onClick.AddListener(GoToMainMenu);
+
+        returnToMainMenuButton.onClick.AddListener(GoToMainMenu);
+        restartButton.onClick.AddListener(RestartGame);
+
         gameManager.OnNewLevelStarted += NewLevelStarted;
+        gameManager.OnGameLost += OnGameLost;
     }
 
     private void Start()
@@ -55,6 +65,9 @@ public class UIGameplay : MonoBehaviour
         pauseButton.onClick.RemoveListener(PauseGame);
         resumeButton.onClick.RemoveListener(ResumePlay);
         mainMenuButton.onClick.RemoveListener(GoToMainMenu);
+
+        returnToMainMenuButton.onClick.RemoveListener(GoToMainMenu);
+        restartButton.onClick.RemoveListener(RestartGame);
     }
 
     private void NewLevelStarted() 
@@ -72,6 +85,20 @@ public class UIGameplay : MonoBehaviour
         levelTextIEnumerator = ShowTextCoroutine();
         StartCoroutine(levelTextIEnumerator);
 
+    }
+
+    private void OnGameLost() 
+    {
+        if (fadeInIEnumerator != null) StopCoroutine(fadeInIEnumerator);
+        if (fadeOutIEnumerator != null) StopCoroutine(fadeOutIEnumerator);
+
+        fadeInIEnumerator = OpenPanelCoroutine(lostScreenPanelGroup);
+        fadeOutIEnumerator = ClosePanelCoroutine(gameplayPanelGroup);
+
+        StartCoroutine(fadeInIEnumerator);
+        StartCoroutine(fadeOutIEnumerator);
+
+        timeSurvivedTextComponent.text = "Time survived: " + gameManager.GetCurrentTime().ToString("0") + " seconds";
     }
 
     private void PauseGame() 
@@ -100,6 +127,11 @@ public class UIGameplay : MonoBehaviour
 
         StartCoroutine(fadeInIEnumerator);
         StartCoroutine(fadeOutIEnumerator);
+    }
+
+    private void RestartGame() 
+    {
+        FadeSingleton.Get().LoadScene(FadeSingleton.SceneIndex.GAMEPLAY);
     }
 
     private void GoToMainMenu() 

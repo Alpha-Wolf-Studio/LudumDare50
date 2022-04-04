@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        ChangeTimeScale(1);
         Invoke(nameof(StartNewLevel), startDelay);
     }
 

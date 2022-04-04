@@ -9,9 +9,27 @@ public class UiSliderRef : MonoBehaviour
     public Button buttonMusic;
     public Button buttonEffect;
 
+    private void Awake()
+    {
+        sliderMusic.onValueChanged.AddListener(SetMusicVolume);
+        sliderEffect.onValueChanged.AddListener(SetEffectVolume);
+
+        buttonMusic.onClick.AddListener(AlternateAudioMusic);
+        buttonEffect.onClick.AddListener(AlternateAudioEffect);
+    }
+
     private void Start()
     {
         AudioManager.Get().OnStart();
+    }
+
+    private void OnDisable()
+    {
+        sliderMusic.onValueChanged.RemoveListener(SetMusicVolume);
+        sliderEffect.onValueChanged.RemoveListener(SetEffectVolume);
+
+        buttonMusic.onClick.RemoveListener(AlternateAudioMusic);
+        buttonEffect.onClick.RemoveListener(AlternateAudioEffect);
     }
 
     // Se llaman desde los botones:
