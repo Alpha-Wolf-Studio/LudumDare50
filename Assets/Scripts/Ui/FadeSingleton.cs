@@ -9,9 +9,11 @@ public class FadeSingleton : MonoBehaviourSingleton<FadeSingleton>
     [SerializeField] private Animator animator;
     [SerializeField] private float fadeSpeed = 1;
 
-    private int sceneIndex;
+    public enum SceneIndex { MAIN_MENU, GAMEPLAY } 
 
-    public void LoadScene(int scene)
+    private SceneIndex sceneIndex;
+
+    public void LoadScene(SceneIndex scene)
     {
         animator.SetFloat("Speed", fadeSpeed);
         animator.SetTrigger("Fade");
@@ -20,7 +22,7 @@ public class FadeSingleton : MonoBehaviourSingleton<FadeSingleton>
 
     private void FadeEvent()
     {
-        SceneManager.LoadScene(sceneIndex);
+        SceneManager.LoadScene((int)sceneIndex);
     }
 
 

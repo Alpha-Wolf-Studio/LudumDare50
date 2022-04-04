@@ -28,6 +28,10 @@ public class GameManager : MonoBehaviour
     public int GetCurrentLevel() => currentLevel;
 
     private float currentLevelTime = 0;
+
+    public float GetCurrentTime() => currentLevelTime;
+    public float GetCurrentLevelMaxTime() => timesConfigurations[currentLevel].timeForNextLevel;
+
     private IEnumerator timeIEnumerator;
 
     private void Awake()
