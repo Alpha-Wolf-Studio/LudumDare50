@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f6e6659e138c14384d27507c755b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 1
+  forwardSpeed: 0.3
 --- !u!114 &-5843452703817028193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -175,5 +175,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a59454c229c324f9bb31bba5d05d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invertX: 1
   axisDirection: 1
