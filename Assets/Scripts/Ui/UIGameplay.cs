@@ -12,8 +12,8 @@ public class UIGameplay : MonoBehaviour
     [SerializeField] private TMPro.TextMeshProUGUI levelTextComponent;
     [SerializeField] private Button pauseButton;
 
-    [Header("Gameplay Configurations")]
-    [SerializeField] private float boatEndOffset = 160;
+    [Header("Gameplay Configurations")] 
+    private float boatEndOffset = 200;
     [SerializeField] private bool levelTextFade = true;
     [SerializeField] private float levelTextFadeSpeed = 1;
     [SerializeField] private float levelTextTimeOnScreen = 2;
@@ -35,8 +35,8 @@ public class UIGameplay : MonoBehaviour
     private IEnumerator updateBoatIEnumerator;
     private IEnumerator levelTextIEnumerator;
 
-    private Vector3 levelBoatStartingPosition;
-    private Vector3 levelBoatEndingPosition;
+    private Vector2 levelBoatStartingPosition;
+    private Vector2 levelBoatEndingPosition;
     private float levelBoatCurrentFloat;
     private bool updateBoat;
 
@@ -55,8 +55,9 @@ public class UIGameplay : MonoBehaviour
 
     private void Start()
     {
-        levelBoatStartingPosition = levelBoatImage.transform.position;
-        levelBoatEndingPosition = levelBoatImage.transform.position;
+        Vector2 anchoredPosition = levelBoatImage.rectTransform.anchoredPosition;
+        levelBoatStartingPosition = anchoredPosition;
+        levelBoatEndingPosition = anchoredPosition;
         levelBoatEndingPosition.x += boatEndOffset;
     }
 
@@ -74,7 +75,7 @@ public class UIGameplay : MonoBehaviour
     {
         updateBoat = true;
 
-        levelBoatImage.transform.position = levelBoatStartingPosition;
+        levelBoatImage.rectTransform.anchoredPosition = levelBoatStartingPosition;
         levelBoatCurrentFloat = 0;
 
         if (updateBoatIEnumerator != null) StopCoroutine(updateBoatIEnumerator);
@@ -168,7 +169,7 @@ public class UIGameplay : MonoBehaviour
         while (updateBoat) 
         {
             levelBoatCurrentFloat = gameManager.GetCurrentTime() / gameManager.GetCurrentLevelMaxTime();
-            levelBoatImage.transform.position = Vector3.Lerp(levelBoatStartingPosition, levelBoatEndingPosition, levelBoatCurrentFloat);
+            levelBoatImage.rectTransform.anchoredPosition = Vector3.Lerp(levelBoatStartingPosition, levelBoatEndingPosition, levelBoatCurrentFloat);
             yield return null;
         }
     }
