@@ -15,6 +15,7 @@ public class EnemyManager : MonoBehaviour
         public float minTimeBetweenSpawns;
         public float spawnAccelerationSpeed;
         public Vector3 onWaterSpawnOffset = Vector3.zero;
+        public Vector3 airSideSpawnOffset = Vector3.zero;
 
         [Header("Enemies References")]
         public List<EnemySpawn> enemiesSpawn;
@@ -86,6 +87,7 @@ public class EnemyManager : MonoBehaviour
                     int newRandomDirection = Random.Range(0, 2);
                     newSpawnPosition.x += newRandomDirection == 0 ? minCamera.x - EnemyGraphicBoundsExtents.x : maxCamera.x + EnemyGraphicBoundsExtents.x;
                     newSpawnPosition.y = maxCamera.y - EnemyGraphicBoundsExtents.y;
+                    newSpawnPosition += configuration.airSideSpawnOffset;
 
                     break;
 
