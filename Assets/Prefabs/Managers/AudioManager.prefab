@@ -53,10 +53,14 @@ MonoBehaviour:
   lastVolEffect: 0
   isMusic: 1
   isEffect: 1
-  menuMusic: {fileID: 8300000, guid: 720bdcbc9cc9f0443adb256a8ae373e3, type: 3}
+  menuMusic: {fileID: 8300000, guid: 443985b4db646f14d99dd89e45e75e0e, type: 3}
   gameplayMusic: {fileID: 8300000, guid: 720bdcbc9cc9f0443adb256a8ae373e3, type: 3}
   soundEffects:
   - name: enemy_death
+    clip: {fileID: 8300000, guid: c7d8afa578c6d904b9f28ee57ccf5348, type: 3}
+  - name: player_shoot
+    clip: {fileID: 8300000, guid: 6318e34cfc996e64cad38053bdac5195, type: 3}
+  - name: player_hit
     clip: {fileID: 8300000, guid: 42cbb3052fba4a043ad78f9beaeb051c, type: 3}
 --- !u!82 &3899599343860284303
 AudioSource:

@@ -38,6 +38,8 @@ public class ShipPlayer : Entity
     {
         if (Input.GetMouseButtonDown(0))
         {
+            AudioManager.Get().PlaySoundEffect("player_shoot");
+
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             RaycastHit2D hit = Physics2D.Raycast(ray.origin, ray.direction);
             if (hit.collider != null)
@@ -79,6 +81,7 @@ public class ShipPlayer : Entity
 
     private void ReduceCurrentLife(int life) 
     {
+        AudioManager.Get().PlaySoundEffect("player_hit");
         currentLife -= life;
         sinking = true;
     }
