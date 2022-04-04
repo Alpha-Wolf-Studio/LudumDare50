@@ -1530,6 +1530,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1396185123
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1396185124}
+  m_Layer: 7
+  m_Name: Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1396185124
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1396185123}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.53, y: -2.78, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1992611305}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1530510403
 GameObject:
   m_ObjectHideFlags: 0
@@ -2384,6 +2414,11 @@ CanvasRenderer:
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5647216103260865926, guid: cb0ce6b5ccba63d41aacf788d0381bda, type: 3}
   m_PrefabInstance: {fileID: 397580709}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1992611305 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7428914362009536813, guid: ecb87e676cfac3a479472107162cb4a2, type: 3}
+  m_PrefabInstance: {fileID: 8787982702481846927}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &2059168622
 GameObject:
@@ -3945,7 +3980,7 @@ PrefabInstance:
     - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
       propertyPath: configurations.Array.data[1].enemiesSpawn.Array.data[0].prefab
       value: 
-      objectReference: {fileID: 6344921979613743685, guid: d45ce4f5ab3669443be4b5b034fee531, type: 3}
+      objectReference: {fileID: 4622954934998985221, guid: 164d97f93ebf7b6439546a29d56eda16, type: 3}
     - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
       propertyPath: configurations.Array.data[1].enemiesSpawn.Array.data[1].prefab
       value: 
@@ -3992,7 +4027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
       propertyPath: configurations.Array.data[1].enemiesSpawn.Array.data[0].currentSpawnType
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
       propertyPath: configurations.Array.data[1].enemiesSpawn.Array.data[1].currentSpawnType
@@ -4125,6 +4160,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player Ship
       objectReference: {fileID: 0}
+    - target: {fileID: 7428914362009536811, guid: ecb87e676cfac3a479472107162cb4a2, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1396185124}
     - target: {fileID: 7428914362009536811, guid: ecb87e676cfac3a479472107162cb4a2, type: 3}
       propertyPath: maxLives
       value: 100
