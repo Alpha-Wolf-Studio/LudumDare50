@@ -4,56 +4,99 @@ using UnityEngine;
 
 public class LookAt2D : MonoBehaviour
 {
+
+    [SerializeField] private bool lookAt = true;
+    [SerializeField] private bool invertOnX = true;
     [SerializeField] private forwardAligment axisDirection = forwardAligment.FRONT;
     enum forwardAligment { FRONT, BACK, UP, DOWN}
 
     private Transform target = null;
     public void SetTarget(Transform target) => this.target = target;
 
-    private SpriteRenderer renderer;
+    private SpriteRenderer mainRenderer;
+
+    [Space(10)]
+    [SerializeField] private SpriteRenderer[] extraRenderersToFlip;
 
     private void Awake()
     {
-        renderer = GetComponent<SpriteRenderer>();
+        mainRenderer = GetComponent<SpriteRenderer>();
     }
 
     void Update()
     {
         if (!target) return;
-        var dir = target.position - transform.position;
-        dir.Normalize();
 
-        switch (axisDirection)
+        if (lookAt) 
         {
-            case forwardAligment.FRONT:
-                transform.right = dir.normalized;
+            var dir = target.position - transform.position;
+            dir.Normalize();
 
-                break;
-            case forwardAligment.BACK:
-                transform.right = -dir.normalized;
+            switch (axisDirection)
+            {
+                case forwardAligment.FRONT:
+                    transform.right = dir.normalized;
 
-                break;
-            case forwardAligment.UP:
-                transform.up = dir.normalized;
+                    break;
+                case forwardAligment.BACK:
+                    transform.right = -dir.normalized;
 
-                break;
+                    break;
+                case forwardAligment.UP:
+                    transform.up = dir.normalized;
 
-            case forwardAligment.DOWN:
-                transform.up = -dir.normalized;
-                break;
-            default:
-                break;
+                    break;
+
+                case forwardAligment.DOWN:
+                    transform.up = -dir.normalized;
+                    break;
+                default:
+                    break;
+            }
         }
 
-        bool invert = transform.position.x < target.position.x;
+        if (invertOnX) 
+        {
+            bool invert = transform.position.x < target.position.x;
 
-        if (invert)
-        {
-            renderer.flipY = true;
-        }
-        else 
-        {
-            renderer.flipY = false;
+            if (invert)
+            {
+                if(axisDirection == forwardAligment.FRONT || axisDirection == forwardAligment.BACK) 
+                {
+                    mainRenderer.flipY = true;
+                    foreach (var renderer in extraRenderersToFlip)
+                    {
+                        renderer.flipY = true;
+                    }
+                }
+                else 
+                {
+                    mainRenderer.flipX = true;
+                    foreach (var renderer in extraRenderersToFlip)
+                    {
+                        renderer.flipX = true;
+                    }
+                }
+            }
+            else 
+            {
+                if (axisDirection == forwardAligment.FRONT || axisDirection == forwardAligment.BACK)
+                {
+                    mainRenderer.flipX = false;
+                    foreach (var renderer in extraRenderersToFlip)
+                    {
+                        renderer.flipX = false;
+                    }
+                }
+                else 
+                {
+                    mainRenderer.flipY = false;
+                    foreach (var renderer in extraRenderersToFlip)
+                    {
+                        renderer.flipY = false;
+                    }
+                }
+            }
         }
     }
 }
