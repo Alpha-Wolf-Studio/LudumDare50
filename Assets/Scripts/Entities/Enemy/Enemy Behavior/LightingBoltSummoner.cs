@@ -51,6 +51,7 @@ public class LightingBoltSummoner : MovementBase
                 Destroy(gameObject, 6);
                 GameObject lightingBoltInstance = Instantiate(lightingBolt, transform.position, Quaternion.identity);
                 lightingBoltInstance.GetComponent<MovementBase>().SetNewTarget(target);
+                lightingBoltInstance.GetComponent<LookAt2D>().SetTarget(target);
             }
         }
         if(speed == 0 && lightingHasBeenSummoned)
