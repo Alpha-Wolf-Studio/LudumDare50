@@ -182,10 +182,10 @@ public class EnemyManager : MonoBehaviour
         var enemyGameobject = Instantiate(enemyToSpawn.prefab, newSpawnPosition, Quaternion.identity, transform);
 
         var enemyMovement = enemyGameobject.GetComponent<MovementBase>();
-        if(enemyMovement) enemyMovement.SetNewTarget(currentPlayer.transform);
+        if(enemyMovement) enemyMovement.SetNewTarget(currentPlayer.Target);
 
         var enemyLookAt = enemyGameobject.GetComponent<LookAt2D>();
-        if (enemyLookAt) enemyLookAt.SetTarget(currentPlayer.transform);
+        if (enemyLookAt) enemyLookAt.SetTarget(currentPlayer.Target);
 
 
         Debug.Break();

@@ -6,11 +6,14 @@ public class ShipPlayer : Entity
 {
     [Header("Enemy Attack Config")]
     [SerializeField] private LayerMask enemyMask = 0;
+    [SerializeField] private Transform target;
 
     [Header("Repair Ship Config")]
     [SerializeField] private Image imageWaterShip;
     [SerializeField] private float sinkingSpeed = 1;
-    
+
+    public Transform Target => target;
+
     private float currentLife;
     private bool sinking = false;
     public bool Sinking => sinking;
