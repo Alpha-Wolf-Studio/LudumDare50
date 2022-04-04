@@ -36,6 +36,7 @@ public class UiMainMenuManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1;
+        AudioManager.Get().PlayMenuMusic();
     }
 
     public void OnButtonPlay()

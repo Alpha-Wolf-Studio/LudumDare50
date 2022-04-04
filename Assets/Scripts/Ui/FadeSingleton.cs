@@ -24,6 +24,4 @@ public class FadeSingleton : MonoBehaviourSingleton<FadeSingleton>
     {
         SceneManager.LoadScene((int)sceneIndex);
     }
-
-
 }

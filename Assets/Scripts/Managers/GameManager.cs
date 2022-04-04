@@ -41,6 +41,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        AudioManager.Get().PlayGameplayMusic();
         ChangeTimeScale(1);
         Invoke(nameof(StartNewLevel), startDelay);
     }
