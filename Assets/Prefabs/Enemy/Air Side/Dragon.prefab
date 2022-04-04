@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: -4308719567181180198}
   - component: {fileID: 1188911462297031776}
   - component: {fileID: -8822046721618845887}
+  - component: {fileID: -719939570303064014}
   m_Layer: 6
   m_Name: Dragon
   m_TagString: Untagged
@@ -120,7 +121,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.012714148, y: 0.4407553}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -131,7 +132,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.44, y: 0.44}
+  m_Size: {x: 2.8556771, y: 3.423573}
   m_EdgeRadius: 0
 --- !u!114 &1188911462297031776
 MonoBehaviour:
@@ -146,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLives: 5
-  damage: 7
+  damage: 8
   color: {r: 0, g: 0, b: 0, a: 0}
   damageTextPrefab: {fileID: 0}
 --- !u!114 &-8822046721618845887
@@ -164,3 +165,19 @@ MonoBehaviour:
   speed: 1
   frequency: 3
   magnitude: 1.5
+--- !u!114 &-719939570303064014
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6201286464125787098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7a59454c229c324f9bb31bba5d05d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookAt: 0
+  invertOnX: 1
+  axisDirection: 2
+  extraRenderersToFlip: []

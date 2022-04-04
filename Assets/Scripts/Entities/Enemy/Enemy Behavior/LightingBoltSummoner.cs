@@ -26,6 +26,10 @@ public class LightingBoltSummoner : MovementBase
 
     void Start()
     {
+        if(transform.position.x > target.position.x)
+        {
+            speed = -speed;
+        }
         speedAux = speed;
         startPosition = transform.position;
     }
@@ -44,6 +48,7 @@ public class LightingBoltSummoner : MovementBase
             if(timeElapsed > timeToSummon-1)
             {
                 lightingHasBeenSummoned = true;
+                Destroy(gameObject, 6);
                 GameObject lightingBoltInstance = Instantiate(lightingBolt, transform.position, Quaternion.identity);
                 lightingBoltInstance.GetComponent<MovementBase>().SetNewTarget(target);
             }

@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxLives: 1
-  damage: 4
+  damage: 3
   color: {r: 0, g: 0, b: 0, a: 0}
   damageTextPrefab: {fileID: 0}
 --- !u!114 &2267116222789438047
@@ -163,7 +163,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55f6e6659e138c14384d27507c755b78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 0.6
+  forwardSpeed: 0.4
 --- !u!114 &8894370914445252639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -179,7 +179,8 @@ MonoBehaviour:
   lookAt: 1
   invertOnX: 1
   axisDirection: 1
-  extraRenderersToFlip: []
+  extraRenderersToFlip:
+  - {fileID: 6163393248429089767}
 --- !u!1 &6163393248429089765
 GameObject:
   m_ObjectHideFlags: 0

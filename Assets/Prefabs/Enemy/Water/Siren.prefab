@@ -179,5 +179,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookAt: 1
   invertOnX: 1
-  axisDirection: 1
+  axisDirection: 2
   extraRenderersToFlip: []

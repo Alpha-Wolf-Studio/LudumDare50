@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 6344921979613743685}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -146,8 +146,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16caeaaa15bafd64dbe1529067b8205c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxLives: 4
-  damage: 7
+  maxLives: 6
+  damage: 10
   color: {r: 0, g: 0, b: 0, a: 0}
   damageTextPrefab: {fileID: 0}
 --- !u!114 &-2923922404092512847
@@ -163,12 +163,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startPosition: {x: 0, y: 0, z: 0}
-  speed: 0
+  speed: 2
   speedAux: 0
-  distanceToMove: 2
-  movementVector: {x: 0, y: 0, z: 0}
+  distanceToMove: 5
+  movementVector: {x: 1, y: 0, z: 0}
   lightingBolt: {fileID: 395632166598894242, guid: 98a470e82a3da014699721024a6d3a66, type: 3}
-  timeToSummon: 4
+  timeToSummon: 2
   timeElapsed: 0
   lightingHasBeenSummoned: 0
 --- !u!114 &2869591061577512396
@@ -185,5 +185,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lookAt: 0
   invertOnX: 1
-  axisDirection: 0
-  extraRenderersToFlip: []
+  axisDirection: 2
+  extraRenderersToFlip:
+  - {fileID: 4047746830672321740, guid: 98a470e82a3da014699721024a6d3a66, type: 3}
