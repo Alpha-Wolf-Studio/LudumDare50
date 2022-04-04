@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4cd867100b95274aa9cf7bd500369fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  arcOffset: 1
+  arcOffset: 0.75
   speed: 0.005
 --- !u!114 &7590211536413516647
 MonoBehaviour:
@@ -176,5 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a59454c229c324f9bb31bba5d05d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invertX: 0
+  lookAt: 1
+  invertOnX: 1
   axisDirection: 1
+  extraRenderersToFlip: []
