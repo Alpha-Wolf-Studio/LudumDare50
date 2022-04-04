@@ -160,10 +160,10 @@ public class EnemyManager : MonoBehaviour
 
     public void SpawnRandomEnemy() 
     {
-
         if(currentPlayer == null) 
         {
             currentPlayer = FindObjectOfType<ShipPlayer>();
+            Debug.Log(currentPlayer);
             Debug.LogWarning("EnemyManager sin player encontrado. Player buscado a la fuerza");
         }
 
@@ -187,8 +187,8 @@ public class EnemyManager : MonoBehaviour
         var enemyLookAt = enemyGameobject.GetComponent<LookAt2D>();
         if (enemyLookAt) enemyLookAt.SetTarget(currentPlayer.Target);
 
-
-        Debug.Break();
+        
+        //Debug.Break();
     }
 
     private void OnValidate()
