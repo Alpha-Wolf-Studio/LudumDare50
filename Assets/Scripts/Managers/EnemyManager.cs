@@ -10,10 +10,11 @@ public class EnemyManager : MonoBehaviour
         [SerializeField][HideInInspector] private string name;
         public void SetName(string name) => this.name = name;
 
-        [Header("Spawn Time Configurations")]
+        [Header("Spawn Configurations")]
         public float timeBetweenSpawns;
         public float minTimeBetweenSpawns;
         public float spawnAccelerationSpeed;
+        public Vector3 onWaterSpawnOffset = Vector3.zero;
 
         [Header("Enemies References")]
         public List<EnemySpawn> enemiesSpawn;
@@ -30,7 +31,7 @@ public class EnemyManager : MonoBehaviour
         public SpawnType currentSpawnType;
         public GameObject prefab;
 
-        public Vector3 GetSpawnPosition(Vector3 playerPosition) 
+        public Vector3 GetSpawnPosition(Vector3 playerPosition, LevelSpawnConfigurations configuration) 
         {
 
             Camera camera = Camera.main;
@@ -61,6 +62,7 @@ public class EnemyManager : MonoBehaviour
 
                     int randomDirection = Random.Range(0, 2);
                     newSpawnPosition.x += randomDirection == 0 ? minCamera.x - EnemyGraphicBoundsExtents.x : maxCamera.x + EnemyGraphicBoundsExtents.x;
+                    newSpawnPosition += configuration.onWaterSpawnOffset;
 
                     break;
 
@@ -175,7 +177,7 @@ public class EnemyManager : MonoBehaviour
         int enemyIndex = Random.Range(0, currentConfiguration.enemiesSpawn.Count);
         var enemyToSpawn = currentConfiguration.enemiesSpawn[enemyIndex];
 
-        Vector3 newSpawnPosition = enemyToSpawn.GetSpawnPosition(currentPlayer.transform.position);
+        Vector3 newSpawnPosition = enemyToSpawn.GetSpawnPosition(currentPlayer.transform.position, currentConfiguration);
 
         var enemyGameobject = Instantiate(enemyToSpawn.prefab, newSpawnPosition, Quaternion.identity, transform);
 
@@ -185,7 +187,8 @@ public class EnemyManager : MonoBehaviour
         var enemyLookAt = enemyGameobject.GetComponent<LookAt2D>();
         if (enemyLookAt) enemyLookAt.SetTarget(currentPlayer.transform);
 
-        
+
+        Debug.Break();
     }
 
     private void OnValidate()
