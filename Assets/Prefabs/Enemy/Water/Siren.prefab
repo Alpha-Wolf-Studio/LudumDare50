@@ -177,5 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a7a59454c229c324f9bb31bba5d05d7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  invertX: 0
-  axisDirection: 0
+  lookAt: 1
+  invertOnX: 1
+  axisDirection: 1
+  extraRenderersToFlip: []
