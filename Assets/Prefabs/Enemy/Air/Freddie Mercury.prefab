@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3038648060446646060}
   - component: {fileID: 7785577122923270307}
   - component: {fileID: 1165761498139531812}
-  - component: {fileID: 8120172077303944510}
+  - component: {fileID: 8824149999792382358}
   m_Layer: 6
   m_Name: Freddie Mercury
   m_TagString: Untagged
@@ -150,7 +150,7 @@ MonoBehaviour:
   damage: 4
   color: {r: 0, g: 0, b: 0, a: 0}
   damageTextPrefab: {fileID: 0}
---- !u!114 &8120172077303944510
+--- !u!114 &8824149999792382358
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -159,12 +159,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 6626817713119707525}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5fd4974adc4376240a9b68e1f68f816d, type: 3}
+  m_Script: {fileID: 11500000, guid: 0f9c6b32a94fa7444ac84af1d8f30a67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  forwardSpeed: 0.2
-  bullet: {fileID: 395632166598894242, guid: edf9787566fcdd84f9d52e4ed22c69f5, type: 3}
-  bulletSpawnTransform: {fileID: 3287379845072425053}
+  startPosition: {x: 0, y: 0, z: 0}
+  speed: 3
+  speedAux: 0
+  distanceToMove: 5
+  movementVector: {x: 1, y: 0, z: 0}
+  lightingBolt: {fileID: 395632166598894242, guid: edf9787566fcdd84f9d52e4ed22c69f5, type: 3}
+  timeToSummon: 2
+  timeElapsed: 0
+  lightingHasBeenSummoned: 0
 --- !u!1 &7663700844751751824
 GameObject:
   m_ObjectHideFlags: 0

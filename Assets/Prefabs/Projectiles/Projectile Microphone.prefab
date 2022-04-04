@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 4047746830672321740}
   - component: {fileID: 667345113539303044}
   - component: {fileID: 445211635193924141}
-  - component: {fileID: 16116916314041907}
+  - component: {fileID: -5990900187770301985}
+  - component: {fileID: 6288551173698659752}
   m_Layer: 6
   m_Name: Projectile Microphone
   m_TagString: Untagged
@@ -132,7 +133,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.44, y: 0.44}
   m_EdgeRadius: 0
---- !u!114 &16116916314041907
+--- !u!114 &-5990900187770301985
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -141,6 +142,22 @@ MonoBehaviour:
   m_GameObject: {fileID: 395632166598894242}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b8f9bdd4192ecb4eb19ebfea8289037, type: 3}
+  m_Script: {fileID: 11500000, guid: a7a59454c229c324f9bb31bba5d05d7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lookAt: 1
+  invertOnX: 0
+  axisDirection: 0
+  extraRenderersToFlip: []
+--- !u!114 &6288551173698659752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 395632166598894242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 423dff7bf70968c4b8dd11a7f0430855, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
