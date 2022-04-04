@@ -34,7 +34,8 @@ public class UiMainMenuManager : MonoBehaviour
     }
     public void OnButtonPlay()
     {
-        SceneManager.LoadScene(1);
+        //SceneManager.LoadScene(1);
+        FadeSingleton.Get().LoadScene(1);
     }
     public void OnButtonSetting()
     {
