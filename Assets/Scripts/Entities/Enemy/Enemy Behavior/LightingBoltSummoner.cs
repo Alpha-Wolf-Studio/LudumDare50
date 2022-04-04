@@ -6,8 +6,7 @@ using UnityEngine;
 [RequireComponent(typeof(BoxCollider2D))]
 public class LightingBoltSummoner : MovementBase
 {
-    [Header("Movment Config")]
-    [SerializeField] private bool hasEnteredIntoTheScreen;
+    [Header("Movement Config")]
     [SerializeField] private Vector3 startPosition;
     [SerializeField] private float speed;
     [SerializeField] private float speedAux;
@@ -19,14 +18,10 @@ public class LightingBoltSummoner : MovementBase
     [SerializeField] private float timeElapsed;
     [SerializeField] private bool lightingHasBeenSummoned;
     private Rigidbody2D rb;
-    private BoxCollider2D col;
-    private SpriteRenderer spr;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-        col = GetComponent<BoxCollider2D>();
-        spr = GetComponent<SpriteRenderer>();
     }
 
     void Start()
@@ -38,14 +33,6 @@ public class LightingBoltSummoner : MovementBase
     // Update is called once per frame
     void Update()
     {
-        if (!hasEnteredIntoTheScreen && spr.isVisible)
-        {
-            hasEnteredIntoTheScreen = true;
-        }
-        if (!spr.isVisible && hasEnteredIntoTheScreen)
-        {
-            Destroy(gameObject);
-        }
 
         if (Mathf.Abs(transform.position.x - startPosition.x) >= distanceToMove)
         {
