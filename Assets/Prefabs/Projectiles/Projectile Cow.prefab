@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 667345113539303044}
   - component: {fileID: 445211635193924141}
   - component: {fileID: -5188489535133199924}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Projectile Cow
   m_TagString: Untagged
   m_Icon: {fileID: 0}

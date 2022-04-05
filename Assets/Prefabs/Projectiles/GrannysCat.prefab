@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6593178329939578308}
   - component: {fileID: 6593178329939578309}
   - component: {fileID: -5960619259270072661}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: GrannysCat
   m_TagString: Untagged
   m_Icon: {fileID: 0}

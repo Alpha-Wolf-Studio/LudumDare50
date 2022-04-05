@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 445211635193924141}
   - component: {fileID: -5990900187770301985}
   - component: {fileID: 6288551173698659752}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: Projectile Microphone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
