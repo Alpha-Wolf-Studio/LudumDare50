@@ -21,7 +21,7 @@ public class EnemyManager : MonoBehaviour
         public List<EnemySpawn> enemiesSpawn;
     }
 
-
+    private List<EnemySpawn> currentEnemiesToSpawn = new List<EnemySpawn>();
 
     [System.Serializable]
     public class EnemySpawn 
@@ -119,9 +119,20 @@ public class EnemyManager : MonoBehaviour
     private IEnumerator spawnIEnumerator;
     private float currentTimeBetweenSpawn;
 
+    private void Start()
+    {
+        currentEnemiesToSpawn.Clear();
+    }
+
     public void SetNewLevel(int level, ShipPlayer player) 
     {
         currentConfiguration = configurations[level];
+
+        foreach (var enemySpawn in currentConfiguration.enemiesSpawn)
+        {
+            currentEnemiesToSpawn.Add(enemySpawn);
+        }
+
         currentPlayer = player;
     }
 
@@ -176,8 +187,8 @@ public class EnemyManager : MonoBehaviour
         }
 
         if (currentConfiguration.enemiesSpawn.Count == 0) return;
-        int enemyIndex = Random.Range(0, currentConfiguration.enemiesSpawn.Count);
-        var enemyToSpawn = currentConfiguration.enemiesSpawn[enemyIndex];
+        int enemyIndex = Random.Range(0, currentEnemiesToSpawn.Count);
+        var enemyToSpawn = currentEnemiesToSpawn[enemyIndex];
 
         Vector3 newSpawnPosition = enemyToSpawn.GetSpawnPosition(currentPlayer.transform.position, currentConfiguration);
 
