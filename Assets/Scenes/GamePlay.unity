@@ -4018,7 +4018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
       propertyPath: configurations.Array.data[2].minTimeBetweenSpawns
-      value: 0.4
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
       propertyPath: configurations.Array.data[2].onWaterSpawnOffset.y
@@ -4254,7 +4254,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
       propertyPath: configurations.Array.data[1].enemiesSpawn.Array.data[1].currentSpawnType
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
       propertyPath: configurations.Array.data[1].enemiesSpawn.Array.data[2].currentSpawnType
