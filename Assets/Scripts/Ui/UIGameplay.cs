@@ -44,10 +44,10 @@ public class UIGameplay : MonoBehaviour
     {
         pauseButton.onClick.AddListener(PauseGame);
         resumeButton.onClick.AddListener(ResumePlay);
-        mainMenuButton.onClick.AddListener(GoToMainMenu);
+        //mainMenuButton.onClick.AddListener(GoToMainMenu);
 
-        returnToMainMenuButton.onClick.AddListener(GoToMainMenu);
-        restartButton.onClick.AddListener(RestartGame);
+        //returnToMainMenuButton.onClick.AddListener(GoToMainMenu);
+        //restartButton.onClick.AddListener(RestartGame);
 
         gameManager.OnNewLevelStarted += NewLevelStarted;
         gameManager.OnGameLost += OnGameLost;
@@ -65,10 +65,10 @@ public class UIGameplay : MonoBehaviour
     {
         pauseButton.onClick.RemoveListener(PauseGame);
         resumeButton.onClick.RemoveListener(ResumePlay);
-        mainMenuButton.onClick.RemoveListener(GoToMainMenu);
+        //mainMenuButton.onClick.RemoveListener(GoToMainMenu);
 
-        returnToMainMenuButton.onClick.RemoveListener(GoToMainMenu);
-        restartButton.onClick.RemoveListener(RestartGame);
+        //returnToMainMenuButton.onClick.RemoveListener(GoToMainMenu);
+        //restartButton.onClick.RemoveListener(RestartGame);
     }
 
     private void NewLevelStarted() 
@@ -130,12 +130,12 @@ public class UIGameplay : MonoBehaviour
         StartCoroutine(fadeOutIEnumerator);
     }
 
-    private void RestartGame() 
+    public void RestartGame() 
     {
         FadeSingleton.Get().LoadScene(FadeSingleton.SceneIndex.GAMEPLAY);
     }
 
-    private void GoToMainMenu() 
+    public void GoToMainMenu() 
     {
         FadeSingleton.Get().LoadScene(FadeSingleton.SceneIndex.MAIN_MENU);
     }
