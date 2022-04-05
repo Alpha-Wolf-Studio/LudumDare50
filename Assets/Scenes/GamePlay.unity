@@ -2179,7 +2179,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1632903519992432126, guid: 8365c02073bd1f443802febf2a290268, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 8365c02073bd1f443802febf2a290268, type: 3}
 --- !u!224 &1801265367 stripped
 RectTransform:
@@ -4046,7 +4047,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
       propertyPath: configurations.Array.data[1].onWaterSpawnOffset.y
-      value: -0.5
+      value: -0.75
       objectReference: {fileID: 0}
     - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
       propertyPath: configurations.Array.data[2].airSideSpawnOffset.y
@@ -4058,7 +4059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
       propertyPath: configurations.Array.data[2].onWaterSpawnOffset.y
-      value: -0.25
+      value: -0.5
       objectReference: {fileID: 0}
     - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
       propertyPath: configurations.Array.data[3].airSideSpawnOffset.y
@@ -4067,6 +4068,10 @@ PrefabInstance:
     - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
       propertyPath: configurations.Array.data[3].minTimeBetweenSpawns
       value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
+      propertyPath: configurations.Array.data[3].onWaterSpawnOffset.y
+      value: -0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5841444325667820235, guid: a6ec515e5d9c30948ad778dea13bb788, type: 3}
       propertyPath: configurations.Array.data[1].spawnAccelerationSpeed
