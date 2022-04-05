@@ -55,14 +55,20 @@ public class AudioManager : MonoBehaviourSingleton<AudioManager>
 
     public void SetMusicVolume(float volume)
     {
+        sliders.buttonMusic.image.color = Color.green;
+        isMusic = true;
         lastVolMusic = volume;
         audioMixer.SetFloat("VolMusic", volume);
+        
     }
 
     public void SetEffectVolume(float volume)
     {
+        sliders.buttonEffect.image.color = Color.green;
+        isEffect = true;
         lastVolEffect = volume;
         audioMixer.SetFloat("VolEffect", volume);
+        
     }
 
     public void AlternateAudioMusic()
