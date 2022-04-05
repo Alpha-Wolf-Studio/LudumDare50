@@ -2300,6 +2300,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 590223664}
   m_CullTransparentMesh: 1
+--- !u!1 &629298585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5588223512491840189, guid: 8272c5cda276ef64686cc2ef90f6b2a8, type: 3}
+  m_PrefabInstance: {fileID: 5588223511620630704}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &629298586
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 629298585}
+  m_Enabled: 1
+  m_Alpha: 0
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &639490561
 GameObject:
   m_ObjectHideFlags: 0
@@ -6559,10 +6576,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: SceneManager
       objectReference: {fileID: 0}
-    - target: {fileID: 5588223511771771735, guid: 8272c5cda276ef64686cc2ef90f6b2a8, type: 3}
-      propertyPath: m_UpdateMode
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 5588223511771771736, guid: 8272c5cda276ef64686cc2ef90f6b2a8, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -6606,6 +6619,10 @@ PrefabInstance:
     - target: {fileID: 5588223511771771736, guid: 8272c5cda276ef64686cc2ef90f6b2a8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5588223512491840191, guid: 8272c5cda276ef64686cc2ef90f6b2a8, type: 3}
+      propertyPath: m_Color.a
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8272c5cda276ef64686cc2ef90f6b2a8, type: 3}
