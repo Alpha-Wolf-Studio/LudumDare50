@@ -29,7 +29,11 @@ public class GameManager : MonoBehaviour
 
     private float currentLevelTime = 0;
 
+    private float allLevelsTime = 0;
     public float GetCurrentTime() => currentLevelTime;
+    public float GetAllTime() => allLevelsTime;
+
+
     public float GetCurrentLevelMaxTime() => timesConfigurations[currentLevel].timeForNextLevel;
 
     private IEnumerator timeIEnumerator;
@@ -57,6 +61,11 @@ public class GameManager : MonoBehaviour
         IncreaseCurrentLevel();
         SetCurrentLevel();
         StartCurrentLevel();
+    }
+
+    private void Update()
+    {
+        allLevelsTime += Time.deltaTime;
     }
 
     private void IncreaseCurrentLevel() 

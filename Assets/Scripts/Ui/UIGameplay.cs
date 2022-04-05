@@ -99,7 +99,7 @@ public class UIGameplay : MonoBehaviour
         StartCoroutine(fadeInIEnumerator);
         StartCoroutine(fadeOutIEnumerator);
 
-        timeSurvivedTextComponent.text = "Time survived: " + gameManager.GetCurrentTime().ToString("0") + " seconds";
+        timeSurvivedTextComponent.text = "Time survived: " + gameManager.GetAllTime().ToString("0") + " seconds";
     }
 
     private void PauseGame() 
